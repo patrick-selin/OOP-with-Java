@@ -113,8 +113,7 @@ public class Student {
     }
 
     public int getCurrentYear() {
-        int currentYear = Year.now().getValue();
-        return currentYear;
+        return Year.now().getValue();
     }
 
     public int getStartYear() {
@@ -124,7 +123,7 @@ public class Student {
     public void setStartYear(final int startYear) {
         int min = ConstantValues.MIN_START_YEAR;
         int max = getCurrentYear();
-        // must be after 2000 AND cannot be in the future
+
         if (startYear > min &&
                 startYear <= max) {
             this.startYear = startYear;
@@ -142,7 +141,6 @@ public class Student {
             graduationYear <= getCurrentYear()) {
             this.graduationYear = graduationYear;
             return "Ok";
-
         }
         else if (!canGraduated()) {
             return "Check the required studies";
@@ -153,27 +151,17 @@ public class Student {
     }
 
     public boolean hasGraduated() {
-        boolean hasGraduated = false;
+        boolean hasGraduated = this.graduationYear != 0;
 
-       if (this.graduationYear != 0) {
-           hasGraduated = true;
-       }
         return hasGraduated;
     }
 
-
     private boolean canGraduated() {
 
-        boolean permission = false;
-
-        if (bachelorCredits >= ConstantValues.BACHELOR_CREDITS &&
-            masterCredits >= ConstantValues.MASTER_CREDITS &&
-            !this.titleOfBachelorThesis.equals(ConstantValues.NO_TITLE) &&
-            !this.titleOfMastersThesis.equals(ConstantValues.NO_TITLE)) {
-
-            permission = true;
-        }
-        return permission;
+        return bachelorCredits >= ConstantValues.BACHELOR_CREDITS &&
+                masterCredits >= ConstantValues.MASTER_CREDITS &&
+                !this.titleOfBachelorThesis.equals(ConstantValues.NO_TITLE) &&
+                !this.titleOfMastersThesis.equals(ConstantValues.NO_TITLE);
     }
 
     public int getStudyYears () {
@@ -182,16 +170,19 @@ public class Student {
         // tässä on virhe kun kun pitäis tulosaa 0
         // ********************
 
-        if (canGraduated()) {
+        if (hasGraduated()) {
             return this.getGraduationYear() - this.getStartYear();
         }
         else {
-            System.out.println(getCurrentYear());
-            System.out.println(this.getStartYear());
-
             return (getCurrentYear() - this.getStartYear());
 
         }
+    }
+
+    public String setPersonId(final int personId) {
+        // check if id is correct (use checkPersoinIDNumber)
+
+        return "Ok";
     }
 
     private String statusPrinter() {
