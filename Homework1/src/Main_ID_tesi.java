@@ -1,23 +1,33 @@
-import java.sql.SQLOutput;
-
 public class Main_ID_tesi {
     public static void main(String[] args) {
 
         Student student1 = new Student();
+        System.out.println(student1);
+        Student student2 = new Student("jukka", "puu");
+        System.out.println(student2);
 
-        student1.setFirstName("Donald");
-        student1.setLastName("Duck");
-        student1.setBachelorCredits(120);
-        student1.setMasterCredits(180);
-        student1.setTitleOfMastersThesis("Masters thesis title");
-        student1.setTitleOfBachelorThesis("Bachelor thesis title");
-        student1.setStartYear(2001);
-        student1.setGraduationYear(2020);
+        System.out.println("=====");
 
-        student1.setPersonId("121298-830A");
-        student1.setPersonId("221199-123A");
-
-        System.out.println(student1.checkBirthdate("121298-830A"));
+//        student2.setFirstName("juk");
+//        System.out.println(student2.getFirstName());
+//
+//        student2.setFirstName("");
+//
+//        System.out.println(student2.getFirstName());
+//
+//        student1.setFirstName("Donald");
+//        student1.setLastName("Duck");
+//        student1.setBachelorCredits(120);
+//        student1.setMasterCredits(180);
+//        student1.setTitleOfMastersThesis("Masters thesis title");
+//        student1.setTitleOfBachelorThesis("Bachelor thesis title");
+//        student1.setStartYear(2001);
+//        student1.setGraduationYear(2020);
+//
+//        student1.setPersonId("121298-830A");
+//        student1.setPersonId("221199-123A");
+//
+//        System.out.println(student1.checkBirthdate("121298-830A"));
 
 
         // System.out.println(student1);

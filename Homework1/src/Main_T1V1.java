@@ -17,9 +17,14 @@ public class Main_T1V1 {
         student2.setId(4);
         student2.setTitleOfBachelorThesis(null);
 
-        System.out.println(student1);
-        System.out.println(student2);
+//        System.out.println(student1);
+//        System.out.println(student2);
 
+        student2.setBachelorCredits(293.0);
+        student2.setMasterCredits(151.0);
+        student2.setTitleOfMastersThesis( "Master's thesis title" );
+
+        System.out.println(student2);
     }
 
 }
