@@ -37,6 +37,12 @@ public class Course {
 
     }
 
+    public Course(Course course) {
+
+    }
+
+// ***********TÄÄ PUUTTUU VIELÄ
+
 //    public Course(Course course) {
 //        // tämä saa siis Course-olion parametrina mutta en vielä
           // taju mitä tällä tehdään. Voi olla et liittyy muihi luokkiin?
