@@ -16,6 +16,7 @@ public class StudentCourse {
     // ******************************
 
     public StudentCourse() {
+
     }
 
     public StudentCourse(Course course, final int gradeNum, final int yearCompleted) {
@@ -43,40 +44,94 @@ public class StudentCourse {
 
     // Set to PROTECTED
     public void setGrade(int gradeNum) {
-        // if course is graded numeric or alphabet
-
-        // if num -> pitää olla 0to5 = käytä checkGradeValiditity
-
-        // in alpabet -> pitää olla 'F' tai 'A'
-
-        // ja jos yearCompleted() ei ole asetettu, set to Current Year
 
 
-        this.gradeNum = gradeNum;
+        if (checkGradeValidity(gradeNum)) {
+            if ((gradeNum == 'F') || (gradeNum == 'A')) {
+                char gradeNumChar = (char) gradeNum;
+
+                this.gradeNum = gradeNumChar;
+            } else {
+                this.gradeNum = gradeNum;
+            }
+        }
+
+        // jos yearCompleted ei ole set -> tämä vuosi
+        // eli jos on 0
+        if (yearCompleted == 0) {
+            this.yearCompleted = getCurrentYear();
+        }
+
     }
 
 
-    // kesken
+    // muista muuttaa privaatiksi
+    public boolean checkGradeValidity(final int gradeNum) {
+        boolean isValid = gradeNum >= 0 && gradeNum <= 5;
+
+        char gradeNumChar = (char) gradeNum;
+
+        if ((gradeNumChar == 'F') || (gradeNumChar == 'A')) {
+            isValid = true;
+        }
+
+        return isValid;
+    }
+
+
     public boolean isPassed() {
-        boolean joo = true;
+        boolean isPassed = true;
 
-        return joo;
+        if (gradeNum == 0) {
+            isPassed = false;
+        }
 
+        char gradeNumChar = (char) gradeNum;
+
+        if (gradeNumChar == 'F') {
+            isPassed = false;
+        }
+
+        return isPassed;
     }
+
 
     public int getYear() {
         return yearCompleted;
     }
 
+
     public void setYear(int yearCompleted) {
-        if (yearCompleted >=2000 &&
-            yearCompleted <= getCurrentYear() ) {
-            System.out.println(getCurrentYear());
+        if (yearCompleted >= 2000 &&
+                yearCompleted <= getCurrentYear()) {
+
             this.yearCompleted = yearCompleted;
         }
     }
 
     public int getCurrentYear() {
         return Year.now().getValue();
+    }
+
+    public String printGrade() {
+
+        String gradeStr = null;
+        if (gradeNum == 65) {
+            return "A";
+        } else if (gradeNum == 70) {
+            return "F";
+        } else if (gradeNum == 0) {
+            return "\"Not Graded\"";
+        }
+        gradeStr = Integer.toString(gradeNum);
+        return gradeStr;
+    }
+
+
+    @Override
+    public String toString() {
+        return course +
+                " Year: " + yearCompleted +
+                ", Grade: " + printGrade() + ".] ";
     }
 }

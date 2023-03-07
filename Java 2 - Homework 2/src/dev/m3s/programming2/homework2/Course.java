@@ -83,6 +83,8 @@ public class Course {
     }
 
     public void setCourseCode(int courseCode, Character courseBase) {
+        courseBase = Character.toUpperCase(courseBase);
+
         if (courseCode > 0 && courseCode < 1000000) {
             if (courseBase.equals('A') ||
                 courseBase.equals('P') ||
