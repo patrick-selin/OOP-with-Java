@@ -4,30 +4,20 @@ import java.time.Year;
 
 public class StudentCourse {
 
-    // **** ATTRIBUTES
-    // ******************************
-
-    Course course;
+    private Course course;
     private int gradeNum;
     private int yearCompleted;
 
 
-    // **** CONSTRACTORS
-    // ******************************
-
     public StudentCourse() {
-
     }
 
-    public StudentCourse(Course course, final int gradeNum, final int yearCompleted) {
 
+    public StudentCourse(Course course, final int gradeNum, final int yearCompleted) {
         setCourse(course);
         setGrade(gradeNum);
         setYear(yearCompleted);
     }
-
-    // **** METHODIT
-    // ******************************
 
 
     public Course getCourse() {
@@ -39,62 +29,68 @@ public class StudentCourse {
     }
 
     public int getGradeNum() {
-        return this.gradeNum;
+        return gradeNum;
     }
 
-    // Set to PROTECTED
-    public void setGrade(int gradeNum) {
 
-
+    protected void setGrade(int gradeNum) {
         if (checkGradeValidity(gradeNum)) {
-            if ((gradeNum == 'F') || (gradeNum == 'A')) {
-                char gradeNumChar = (char) gradeNum;
+            if (!course.isNumericGrade()) {
 
-                this.gradeNum = gradeNumChar;
+                if ((gradeNum == ConstantValues.GRADE_FAILED) ||
+                        (gradeNum == ConstantValues.GRADE_ACCEPTED)) {
+
+                    this.gradeNum = (char) gradeNum;
+                }
+
             } else {
                 this.gradeNum = gradeNum;
             }
         }
 
-        // jos yearCompleted ei ole set -> tämä vuosi
-        // eli jos on 0
         if (yearCompleted == 0) {
             this.yearCompleted = getCurrentYear();
         }
-
     }
 
 
-    // muista muuttaa privaatiksi
-    public boolean checkGradeValidity(final int gradeNum) {
-        boolean isValid = gradeNum >= 0 && gradeNum <= 5;
+    private boolean checkGradeValidity(final int gradeNum) {
 
-        char gradeNumChar = (char) gradeNum;
 
-        if ((gradeNumChar == 'F') || (gradeNumChar == 'A')) {
-            isValid = true;
+        if (course.isNumericGrade()) {
+            if (gradeNum >= ConstantValues.MIN_GRADE &&
+                gradeNum <= ConstantValues.MAX_GRADE) {
+
+                return true;
+            }
+
+        } else {
+
+            char gradeNumChar = (char) gradeNum;
+
+            if ((gradeNumChar == 'A') ||
+                (gradeNumChar == 'F')) {
+//            System.out.println("222");
+
+            return true;
+            }
         }
 
-        return isValid;
+        return false;
     }
 
 
     public boolean isPassed() {
-        boolean isPassed = true;
-
-        if (gradeNum == 0) {
-            isPassed = false;
-        }
+        boolean isPassed = gradeNum != ConstantValues.MIN_GRADE;
 
         char gradeNumChar = (char) gradeNum;
 
-        if (gradeNumChar == 'F') {
+        if (gradeNumChar == ConstantValues.GRADE_FAILED) {
             isPassed = false;
         }
 
         return isPassed;
     }
-
 
     public int getYear() {
         return yearCompleted;
@@ -102,23 +98,18 @@ public class StudentCourse {
 
 
     public void setYear(int yearCompleted) {
-        if (yearCompleted >= 2000 &&
+        if (yearCompleted >= ConstantValues.MIN_START_YEAR &&
                 yearCompleted <= getCurrentYear()) {
 
             this.yearCompleted = yearCompleted;
         }
     }
 
-    public int getCurrentYear() {
-        return Year.now().getValue();
-    }
-
-    public String printGrade() {
+        public String printGrade() {
 
         String gradeStr = null;
-        if (gradeNum == 65) {
-            return "A";
-        } else if (gradeNum == 70) {
+        if (gradeNum == 65) return "A";
+        else if (gradeNum == 70) {
             return "F";
         } else if (gradeNum == 0) {
             return "\"Not Graded\"";
@@ -128,10 +119,17 @@ public class StudentCourse {
     }
 
 
+    public int getCurrentYear() {
+        return Year.now().getValue();
+    }
+
     @Override
     public String toString() {
-        return course +
-                " Year: " + yearCompleted +
-                ", Grade: " + printGrade() + ".] ";
+        return course + " Year: " + yearCompleted +
+                ", Grade: " + printGrade() +
+                ".]"
+                ;
+
     }
+
 }

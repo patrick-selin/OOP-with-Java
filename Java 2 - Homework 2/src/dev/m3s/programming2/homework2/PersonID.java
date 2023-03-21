@@ -4,20 +4,12 @@ import java.util.HashMap;
 
 public class PersonID {
 
-
-    // **** ATTRIBUTES
-    // ******************************
     private String birthDate = ConstantValues.NO_BIRTHDATE;
 
 
-    // **** CONSTRACTORS
-    // ******************************
+    public PersonID() {
+    }
 
-
-    // ei ole????
-
-    // **** METHODIT
-    // ******************************
 
     public String getBirthDate() {
         return this.birthDate;
@@ -131,9 +123,14 @@ public class PersonID {
 
 
     private boolean checkBirthdate(final String date) {
-        // 11.12.1222
+
+
 
         boolean isValidDate = true;
+
+        if (date.length() != 10) {
+            return false;
+        }
 
         String dayStr = date.substring(0,2);
         int dayNum = Integer.parseInt(dayStr);

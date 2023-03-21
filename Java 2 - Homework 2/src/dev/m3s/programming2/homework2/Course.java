@@ -5,8 +5,8 @@ public class Course {
     // **** ATTRIBUTES
     // ******************************
     private String name;
-    private String courseCode;
-    private Character courseBase;
+    private String courseCode; //e.g. 811322A
+    private Character courseBase; // e.g. A
     private int courseType;
     private int period;
     private double credits;
@@ -20,40 +20,37 @@ public class Course {
     }
 
     public Course(String name,
-                  final int courseCode,
+                  final int code,
                   Character courseBase,
-                  final int courseType,
+                  final int type,
                   final int period,
                   final double credits,
                   boolean numericGrade) {
 
         setName(name);
-        setCourseCode(courseCode, courseBase); // 811322A
-        this.courseBase = courseBase; // A, P, S
-        setCourseType(courseType); // 0 tai 1
+        setCourseCode(code, courseBase);
+        this.courseBase = courseBase;
+        setCourseType(type);
         setPeriod(period);
         setCredits(credits);
         setNumericGrade(numericGrade);
 
     }
 
-    public Course(Course course) {
+    public Course( Course copy) {
 
+        this.name = copy.name;
+        this.courseCode = copy.courseCode;
+        this.courseBase = copy.courseBase;
+        this.courseType = copy.courseType;
+        this.period = copy.period;
+        this.credits = copy.credits;
+        this.numericGrade = copy.numericGrade;
     }
 
-// ***********TÄÄ PUUTTUU VIELÄ
-
-//    public Course(Course course) {
-//        // tämä saa siis Course-olion parametrina mutta en vielä
-          // taju mitä tällä tehdään. Voi olla et liittyy muihi luokkiin?
-//    }
-
-
-    // **** METHODIT
-    // ******************************
 
     public void setName(String name) {
-        if (name != null) {
+        if (name != null && !name.equals("")) {
             this.name = name;
         }
     }
@@ -82,6 +79,7 @@ public class Course {
         return courseType;
     }
 
+
     public void setCourseCode(int courseCode, Character courseBase) {
         courseBase = Character.toUpperCase(courseBase);
 
@@ -90,18 +88,23 @@ public class Course {
                 courseBase.equals('P') ||
                 courseBase.equals('S')) {
 
-                this.courseCode = String.valueOf(courseCode) + String.valueOf(courseBase);
+                this.courseBase = Character.toUpperCase(courseBase);
+                this.courseCode = courseCode + String.valueOf(courseBase);
             }
         }
     }
 
+
     public String getCourseCode() {
-        return courseCode;
+
+        return courseCode.toUpperCase();
     }
 
+
     public Character getCourseBase() {
-        return this.courseBase;
+        return courseBase;
     }
+
 
     public void setPeriod(int period) {
         if (period >= ConstantValues.MIN_PERIOD &&
@@ -110,21 +113,21 @@ public class Course {
         }
     }
 
+
     public int getPeriod() {
-        return this.period;
+        return period;
     }
 
 
-    // muista laittaa PRIVATE
-    public void setCredits(final double credits) {
+    private void setCredits(final double credits) {
         if (credits >= ConstantValues.MIN_CREDITS &&
-           credits <= ConstantValues.MAX_CREDITS) {
+           credits <= ConstantValues.MAX_COURSE_CREDITS) {
             this.credits = credits;
         }
     }
 
     public double getCredits() {
-        return this.credits;
+        return credits;
     }
 
     public boolean isNumericGrade() {
@@ -135,9 +138,21 @@ public class Course {
         this.numericGrade = numericGrade;
     }
 
+    private String printCrFormat(double credits) {
+        if (credits >= 10) {
+            return "";
+        }
+        else {
+            return " ";
+
+        }
+    }
+
     @Override
     public String toString() {
-        return "[" + courseCode + " (" + credits + " cr), \"" +
-                name + "\". " + getCourseTypeString() + ", period: " + period + ".]";
+        return "[" + courseCode +
+                " (" + printCrFormat(credits) + String.format("%.2f",credits) + " cr), \"" +
+                name + "\". " + getCourseTypeString() + ", period: " +
+                period + ".]";
     }
 }
