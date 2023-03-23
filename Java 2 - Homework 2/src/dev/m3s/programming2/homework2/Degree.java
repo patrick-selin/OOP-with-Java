@@ -9,7 +9,7 @@ public class Degree {
     // ******************************
 
     static final int MAX_COURSES = 50;
-    private int count = 0;
+    int count = 0;
     private String degreeTitle = ConstantValues.NO_TITLE;
     private String titleOfThesis = ConstantValues.NO_TITLE;
     StudentCourse[] myCourses = new StudentCourse[MAX_COURSES];

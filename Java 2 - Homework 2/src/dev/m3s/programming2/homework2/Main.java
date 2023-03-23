@@ -17,7 +17,7 @@ public class Main {
         Course course7 = new Course("All kinds of master studies", 717171, 'P', 0, 2, 45.0, true);
         Course course8 = new Course("More master studies", 818181, 'A', 1, 1, 25.0, true);
         Course course9 = new Course("Even more master studies ", 919191, 'S', 1, 3, 20.0, true);
-        Course course10 = new Course("Extra master studies", 666666, 'S', 0, 5, 8.0, false);
+        Course course10 = new Course("Extra master studies", 666666, 'S', 0, 5, 48.0, false);
         Course course11 = new Course("Final master studies", 888888, 'S', 1, 5, 18.0, false);
 
         // Kohta 3: ** StudentCourses for student1
@@ -66,7 +66,7 @@ public class Main {
 
         // Kohta 10 ** Add Bachelor courses to bachelor studies for student1
         student1.addCourses(ConstantValues.BACHELOR_TYPE, StudentBachelorCourses);
-
+//
         // Kohta 11 ** Add Master courses to bachelor studies for student1
         student1.addCourses(ConstantValues.MASTER_TYPE, StudentMasterCourses);
 
@@ -84,6 +84,9 @@ public class Main {
 
         // Kohta 16 ** Print Student details using toString() (via Student-class)
 //        System.out.println(student1.toString());
+
+        // Kohta 17 **  Set birthdate of the student1
+        student1.setBirthdate("230498-045T");
 
 
 // *************************************************
@@ -111,6 +114,18 @@ public class Main {
         System.out.println("=======================");
 
 
+        System.out.println(student1.getBirthdate());
+
+
+        System.out.println(student1.getGraduationYear());
+
+        System.out.println(student1.getStudyYears());
+
+
+        System.out.println("=======================");
+
+        student1.toString();
+        System.out.println(student1.toString());
 
     }
 }

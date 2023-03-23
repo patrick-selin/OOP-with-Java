@@ -37,7 +37,7 @@ public class PersonID {
     }
 
 
-    private String birthdayModifier(final String personId) {
+    public String birthdayModifier(final String personId) {
 
         String bdayModified;
 
@@ -123,9 +123,6 @@ public class PersonID {
 
 
     private boolean checkBirthdate(final String date) {
-
-
-
         boolean isValidDate = true;
 
         if (date.length() != 10) {
