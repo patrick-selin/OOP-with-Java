@@ -24,9 +24,11 @@ public class StudentCourse {
         return course;
     }
 
+
     public void setCourse(Course course) {
         this.course = course;
     }
+
 
     public int getGradeNum() {
         return gradeNum;
@@ -55,8 +57,6 @@ public class StudentCourse {
 
 
     private boolean checkGradeValidity(final int gradeNum) {
-
-
         if (course.isNumericGrade()) {
             if (gradeNum >= ConstantValues.MIN_GRADE &&
                 gradeNum <= ConstantValues.MAX_GRADE) {
@@ -70,7 +70,6 @@ public class StudentCourse {
 
             if ((gradeNumChar == 'A') ||
                 (gradeNumChar == 'F')) {
-//            System.out.println("222");
 
             return true;
             }
@@ -105,15 +104,19 @@ public class StudentCourse {
         }
     }
 
-        public String printGrade() {
+    public String printGrade() {
 
         String gradeStr = null;
+
         if (gradeNum == 65) return "A";
+
         else if (gradeNum == 70) {
             return "F";
-        } else if (gradeNum == 0) {
+        }
+        else if (gradeNum == 0) {
             return "\"Not Graded\"";
         }
+
         gradeStr = Integer.toString(gradeNum);
         return gradeStr;
     }
@@ -126,10 +129,7 @@ public class StudentCourse {
     @Override
     public String toString() {
         return course + " Year: " + yearCompleted +
-                ", Grade: " + printGrade() +
-                ".]"
-                ;
+                ", Grade: " + printGrade() + ".]";
 
     }
-
 }

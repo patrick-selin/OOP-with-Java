@@ -2,20 +2,15 @@ package dev.m3s.programming2.homework2;
 
 public class Course {
 
-    // **** ATTRIBUTES
-    // ******************************
     private String name;
-    private String courseCode; //e.g. 811322A
-    private Character courseBase; // e.g. A
+    private String courseCode;
+    private Character courseBase;
     private int courseType;
     private int period;
     private double credits;
     private boolean numericGrade;
 
 
-
-    // **** CONSTRACTORS
-    // ******************************
     public Course() {
     }
 
@@ -34,7 +29,6 @@ public class Course {
         setPeriod(period);
         setCredits(credits);
         setNumericGrade(numericGrade);
-
     }
 
     public Course( Course copy) {
@@ -55,6 +49,7 @@ public class Course {
         }
     }
 
+
     public String getName() {
         return name;
     }
@@ -68,12 +63,14 @@ public class Course {
         }
     }
 
+
     public void setCourseType(int type) {
         if (type == ConstantValues.OPTIONAL ||
             type == ConstantValues.MANDATORY) {
             this.courseType = type;
         }
     }
+
 
     public int getCourseType() {
         return courseType;
@@ -96,7 +93,6 @@ public class Course {
 
 
     public String getCourseCode() {
-
         return courseCode.toUpperCase();
     }
 
@@ -130,13 +126,16 @@ public class Course {
         return credits;
     }
 
+
     public boolean isNumericGrade() {
         return numericGrade;
     }
 
+
     public void setNumericGrade(boolean numericGrade) {
         this.numericGrade = numericGrade;
     }
+
 
     private String printCrFormat(double credits) {
         if (credits >= 10) {
@@ -144,9 +143,9 @@ public class Course {
         }
         else {
             return " ";
-
         }
     }
+
 
     @Override
     public String toString() {

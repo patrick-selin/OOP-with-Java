@@ -1,12 +1,8 @@
 package dev.m3s.programming2.homework2;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class Degree {
-
-    // **** ATTRIBUTES
-    // ******************************
 
     static final int MAX_COURSES = 50;
     int count = 0;
@@ -23,12 +19,13 @@ public class Degree {
     public void addStudentCourses(StudentCourse[] courses){
         if (courses != null ) {
             for (StudentCourse course : courses) {
-                if (course != null) {
+                if (course != null && count < MAX_COURSES) {
                     addStudentCourse(course);
                 }
             }
         }
     }
+
 
     public boolean addStudentCourse(StudentCourse course) {
         if (course != null && count < MAX_COURSES) {
@@ -65,7 +62,6 @@ public class Degree {
     public double getCreditsByBase(Character base) {
         double totalCreditsByBase = 0.00;
 
-//        base = Character.toUpperCase(base);
         System.out.println(base + "--");
 
         for (StudentCourse course: myCourses) {
@@ -137,7 +133,6 @@ public class Degree {
             }
         }
 
-
         return courseCompleted;
     }
 
@@ -147,7 +142,6 @@ public class Degree {
         for (StudentCourse course: myCourses) {
             if (course != null) {
                 System.out.println(course);
-
             }
         }
     }

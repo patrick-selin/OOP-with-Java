@@ -21,6 +21,7 @@ public class Student {
         degrees[2] = new Degree();
     }
 
+
     public Student(String lastName, String firstName) {
         this();
         setLastName(lastName);
@@ -52,6 +53,7 @@ public class Student {
             this.lastName = lastName;
         }
     }
+
 
     private int getRandomId() {
         int min = ConstantValues.MIN_ID;
@@ -95,6 +97,7 @@ public class Student {
             this.startYear = startYear;
         }
     }
+
 
     public int getGraduationYear() {
         return graduationYear;
@@ -186,9 +189,24 @@ public class Student {
     }
 
 
-
     public void printCourses() {
-        // kesken
+        for (Degree dd : degrees) {
+            if (dd != null) {
+
+                for (StudentCourse c : dd.getCourses()) {
+                    if (c != null)
+                        System.out.println(c);
+                }
+                System.out.println();
+            }
+        }
+    }
+
+
+    public void printDegrees() {
+        for (Degree dd : degrees) {
+            System.out.println(dd.toString());
+        }
 
     }
 
@@ -231,6 +249,7 @@ public class Student {
         return true;
     }
 
+
     public int getStudyYears() {
         if (hasGraduated()) {
             return getGraduationYear() - this.startYear;
@@ -250,30 +269,26 @@ public class Student {
     }
 
 
-//
-//    private String masterCreditsPrinter() {
-//        if (getMasterCredits() >= ConstantValues.MASTER_CREDITS) {
-//            return "All required master's credits completed (" +
-//                    masterCredits + "/" + ConstantValues.MASTER_CREDITS + ")";
-//        }
-//        else {
-//
-//            return "Missing master's credits " + missingMasterCredits() +
-//                    " (" + masterCredits + "/"
-//                    + ConstantValues.MASTER_CREDITS + ")";
-//
-//        }
-//    }
+    public double getAllCredits() {
+        return degrees[0].getCredits() + degrees[1].getCredits();
+    }
 
 
-    public double testiCreditsGetter() {
-        double kreditit = 0.00;
-
-        Degree testDegree = new Degree();
-
-        kreditit = testDegree.getCredits();
-
-        return kreditit;
+    public String printCredits(int degree) {
+        if (degree == ConstantValues.BACHELOR_TYPE) {
+            if ( degrees[ConstantValues.BACHELOR_TYPE].getCredits()
+                      >= ConstantValues.BACHELOR_CREDITS) {
+                return "Total bachelor credits completed";
+            }
+            else return "Missing bachelor's credits " +
+                    (ConstantValues.BACHELOR_CREDITS -
+                     degrees[ConstantValues.BACHELOR_TYPE].getCredits());
+        }
+        if ( degrees[ConstantValues.MASTER_TYPE].getCredits() >= ConstantValues.MASTER_CREDITS) {
+            return "Total master's credits completed";
+        }
+        else return "Missing master's credits  " +
+                (ConstantValues.MASTER_CREDITS - degrees[ConstantValues.MASTER_TYPE].getCredits());
     }
 
 
@@ -281,8 +296,6 @@ public class Student {
     public String toString() {
         String tab = "\t";
         String printL = "\n";
-
-        String temppi = "TEMPPI";
 
         return "Student id: " + id + printL +
                 tab + "FirstName: " + firstName + ", " +
@@ -292,16 +305,20 @@ public class Student {
                 tab + "StartYear: " + startYear + " (studies have lasted for " +
                 getStudyYears() + " years)" + printL +
 
-                tab + "Total credits testi: " + testiCreditsGetter() + printL +
+                tab + "Total credits: " + getAllCredits() + printL +
 
-                tab + "Total credits: " + "PUUTTUU VIELÄ METHOD .getCredits() " + printL +
-                tab + "Bachelor credits: " + "PUUTTUU VIELÄ" + printL +
-                tab + tab + "Total bachelor credits completed " + printL +
+                tab + "Bachelor credits: " + degrees[0].getCredits()  + printL +
+                tab + tab + printCredits(ConstantValues.BACHELOR_TYPE) +
+                " (" + degrees[0].getCredits() + "/" + ConstantValues.BACHELOR_CREDITS +
+                ")" + printL +
 
+                tab + tab + "Title of BSc Thesis: " + degrees[0].getTitleOfThesis() + printL +
 
-                tab + "BachelorCredits: " + temppi + " ==> " + temppi
-//                + bachelorCreditsPrinter() + printL +
+                tab + "Master Credits: " + degrees[1].getCredits()  + printL +
+                tab + tab + printCredits(ConstantValues.MASTER_TYPE) +
+                " (" + degrees[1].getCredits() + "/" + ConstantValues.MASTER_CREDITS +
+                ")" + printL +
 
-                ;
+                tab + tab + "Title of MSc Thesis: " + degrees[1].getTitleOfThesis() ;
     }
 }

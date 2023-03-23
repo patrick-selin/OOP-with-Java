@@ -38,7 +38,6 @@ public class PersonID {
 
 
     public String birthdayModifier(final String personId) {
-
         String bdayModified;
 
         String dayStr = personId.substring(0,2);
@@ -156,13 +155,7 @@ public class PersonID {
                 }
             }
         }
+
         return isValidDate;
     }
-
-
-
-
-
-
-
 }
