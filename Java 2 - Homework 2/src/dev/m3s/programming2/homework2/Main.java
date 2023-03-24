@@ -88,44 +88,12 @@ public class Main {
         // Kohta 17 **  Set birthdate of the student1
         student1.setBirthdate("230498-045T");
 
-
 // *************************************************
 // *************************************************
-
-
-
-
-//        Degree dgr1 = new Degree();
-//        Degree dgr2 = new Degree();
-//        Degree dgr3 = new Degree();
-//
-//        dgr1.addStudentCourses(StudentBachelorCourses);
-//        dgr1.setDegreeTitle("Bachelor of Science....temp..");
-//        dgr1.setTitleOfThesis("Christmas - The most...temp.....");
-//
-//        dgr2.addStudentCourses(StudentMasterCourses);
-//        dgr2.setDegreeTitle("Master of Science...temp....");
-//        dgr2.setTitleOfThesis("Dreaming of a white Christmas.. temp...");
-
-//        System.out.println(dgr1.toString());
-//        System.out.println(dgr2.toString());
-//        System.out.println(dgr3.toString());
-
-        System.out.println("=======================");
-
-
-        System.out.println(student1.getBirthdate());
-
-
-        System.out.println(student1.getGraduationYear());
-
-        System.out.println(student1.getStudyYears());
-
-
-        System.out.println("=======================");
-
 
         System.out.println(student1);
+
+
 
 
     }

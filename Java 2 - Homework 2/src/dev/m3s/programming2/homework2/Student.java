@@ -147,10 +147,10 @@ public class Student {
         int numAddedCourses = 0;
 
         if (courses != null && i >= 0 && i < degreeCount) {
-            degrees[i].addStudentCourses(courses);
+
 
             for (StudentCourse x: courses) {
-                if ( x != null ) {
+                if ( x != null && degrees[i].addStudentCourse(x)) {
                     numAddedCourses++;
                 }
             }
