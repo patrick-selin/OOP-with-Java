@@ -2,9 +2,9 @@ package dev.m3s.programming2.homework3;
 
 public class Course {
 
-    private String name;
-    private String courseCode;
-    private Character courseBase;
+    private String name = ConstantValues.NO_TITLE;
+    private String courseCode = ConstantValues.NOT_AVAILABLE;
+    private Character courseBase = ' ';
     private int courseType;
     private int period;
     private double credits;
