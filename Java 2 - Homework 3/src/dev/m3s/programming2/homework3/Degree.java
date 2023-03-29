@@ -1,6 +1,8 @@
 package dev.m3s.programming2.homework3;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Degree {
 
@@ -8,10 +10,13 @@ public class Degree {
     int count = 0;
     private String degreeTitle = ConstantValues.NO_TITLE;
     private String titleOfThesis = ConstantValues.NO_TITLE;
-    StudentCourse[] myCourses = new StudentCourse[MAX_COURSES];
+//    StudentCourse[] myCourses = new StudentCourse[MAX_COURSES];
+    ArrayList<StudentCourse> myCourses = new ArrayList<StudentCourse>();
+    // ArrayList<String> cars = new ArrayList<String>();
+    // cars.add("Volvo");
 
 
-    public StudentCourse[] getCourses() {
+    public List<StudentCourse> getCourses() {
         return myCourses;
     }
 
@@ -29,7 +34,8 @@ public class Degree {
 
     public boolean addStudentCourse(StudentCourse course) {
         if (course != null && count < MAX_COURSES) {
-            myCourses[count] = course;
+            myCourses.add(course);
+//            myCourses[count] = course;
             this.count++;
 
             return true;
@@ -146,6 +152,19 @@ public class Degree {
         }
     }
 
+    public List<Double> getGPA (int type) {
+        ArrayList<Double> listaa = new ArrayList<>();
+//        listaa.add(1.38);
+
+        // CALCULATE
+        // SUM, COUNT, AVERAGE
+
+
+
+
+        return listaa;
+    }
+
     private String printDegreeCourses() {
         int counter = 1;
         String temp = "";
@@ -156,6 +175,8 @@ public class Degree {
                 counter++;
             }
         }
+
+
         return temp;
     }
 
@@ -163,8 +184,8 @@ public class Degree {
     @Override
     public String toString() {
         return "Degree [Title: \"" + degreeTitle + "\" (courses: " + count +
-                ")\n" + "\tThesis title: \"" + titleOfThesis + "\"]" +
-                ")\n" + printDegreeCourses()
+                ")\n" + "\tThesis title: \"" + titleOfThesis + "\"" +
+                "\n" + printDegreeCourses()
                 ;
     }
 }
