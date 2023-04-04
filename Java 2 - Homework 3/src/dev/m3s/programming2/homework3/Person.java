@@ -14,7 +14,6 @@ public abstract class Person {
     //**********    CONSTRUCTORS
     //***********************************
 
-
     public Person() {
         setLastName(lastName);
         setFirstName(firstName);

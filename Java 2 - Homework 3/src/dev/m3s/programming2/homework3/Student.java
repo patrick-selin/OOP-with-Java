@@ -33,45 +33,8 @@ public class Student extends Person {
         setFirstName(firstName);
         // muistaa set ID person-inheritance????
     }
-//
-//
-//    public String getFirstName() {
-//        return firstName;
-//    }
-//
-//
-//    public void setFirstName(String firstName) {
-//        if (firstName != null &&
-//                !firstName.equals("")) {
-//            this.firstName = firstName;
-//        }
-//    }
-//
-//
-//    public String getLastName() {
-//        return lastName;
-//    }
-//
-//
-//    public void setLastName(String lastName) {
-//        if (lastName != null &&
-//                !lastName.equals("")) {
-//            this.lastName = lastName;
-//        }
-//    }
 
 
-//    private int getRandomId() {
-//        int min = ConstantValues.MIN_ID;
-//        int max = ConstantValues.MAX_ID;
-//        int studentId;
-//
-//        studentId = (int) (Math.random() * ((max - min) + 1)) + min;
-//
-//        return studentId;
-//    }
-//
-//
     public int getId() {
         return id;
     }
@@ -97,7 +60,6 @@ public class Student extends Person {
 
 
     public void setStartYear(final int startYear) {
-
         if (startYear > ConstantValues.MIN_START_YEAR &&
                 startYear <= getCurrentYear()) {
             this.startYear = startYear;
@@ -110,64 +72,60 @@ public class Student extends Person {
     }
 
 
-//    public String setGraduationYear(final int graduationYear) {
-//        if (canGraduate() &&
-//                graduationYear >= this.startYear &&
-//                graduationYear <= getCurrentYear() ){
-//            this.graduationYear = graduationYear;
-//            return "Ok";
-//        }
-//        else if (!canGraduate()) {
-//            return "Check amount of required credits";
-//        }
-//        else {
-//            return "Check graduation year";
-//        }
-//    }
+    public String setGraduationYear(final int graduationYear) {
+        if (canGraduate() &&
+                graduationYear >= this.startYear &&
+                graduationYear <= getCurrentYear() ){
+            this.graduationYear = graduationYear;
+            return "Ok";
+        }
+        else if (!canGraduate()) {
+            return "Check amount of required credits";
+        }
+        else {
+            return "Check graduation year";
+        }
+    }
 
 
-//    public void setDegreeTitle(final int i, String dName) {
-//        // huom HARD CODATTU nyt aluksi tuo kolmonen
-//        if (dName != null && i >= 0 && i < 3) {
-////            degrees[i].setDegreeTitle(dName);
-////
-//            degrees()
-//        }
-//    }
+    public void setDegreeTitle(final int i, String dName) {
+        if (dName != null && i >= 0 && i < degrees.size()) {
+            degrees.get(i).setDegreeTitle(dName);
+        }
+    }
 
 
-//    public boolean addCourse(final int i, StudentCourse course) {
-//        boolean onko = false;
-//
-//        if (course != null &&
-//                i >= 0 &&
-//                i < degreeCount &&
-//                degrees[i].count < degrees[i].MAX_COURSES ) {
-//
-//            degrees[i].addStudentCourse(course);
-//            onko = true;
-//        }
-//
-//        return onko;
-//    }
+    public boolean addCourse(final int i, StudentCourse course) {
+        boolean onko = false;
+
+        if (course != null &&
+                i >= 0 &&
+                i <= degrees.size() ) {
+
+            degrees.get(i).addStudentCourse(course);
+            onko = true;
+        }
+
+        return onko;
+    }
 
 
-//    public int addCourses(final int i, StudentCourse[] courses) {
-//        int numAddedCourses = 0;
-//
-//        if (courses != null && i >= 0 && i < degreeCount) {
-//
-//
-//            for (StudentCourse x: courses) {
-//                if ( x != null && degrees[i].addStudentCourse(x)) {
-//                    numAddedCourses++;
-//                }
-//            }
-//        }
-//        return numAddedCourses;
-//    }
-//
-//
+    public int addCourses(final int i, ArrayList<StudentCourse> courses) {
+        int numAddedCourses = 0;
+
+        if (courses != null && i >= 0 && i < degrees.size()) {
+
+
+            for (StudentCourse x: courses) {
+                if ( x != null && degrees.get(i).addStudentCourse(x)) {
+                    numAddedCourses++;
+                }
+            }
+        }
+        return numAddedCourses;
+    }
+
+
 //    public void printDegrees() {
 //        for (Degree dd : degrees) {
 //            System.out.println(dd.toString());
@@ -176,89 +134,93 @@ public class Student extends Person {
 //    }
 
 
-//    public void setTitleOfThesis(int i, String title) {
-//        if (title != null && i >= 0 && i < degreeCount) {
-//            degrees[i].setTitleOfThesis(title);
-//        }
-//    }
-
-
-//    public String setBirthdate(String personId) {
-//        if (personId == null) {
-//            return "No Change";
-//        }
-//
-//        PersonID testID = new PersonID();
-//        String isValid = testID.setPersonId(personId);
-//
-//        if (isValid.equals("Ok")) {
-//            String birthdateString = testID.birthdayModifier(personId);
-//            this.birthDate = birthdateString;
-//
-//            return birthdateString;
-//        }
-//        return "No Change";
-//    }
-//
-//
-//    public String getBirthdate() {
-//        return birthDate;
-//    }
-//
-//
-//    public void printCourses() {
-//        for (Degree dd : degrees) {
-//            if (dd != null) {
-//
-//                for (StudentCourse c : dd.getCourses()) {
-//                    if (c != null)
-//                        System.out.println(c);
-//                }
-//                System.out.println();
-//            }
-//        }
-//    }
+    public void setTitleOfThesis(int i, String title) {
+        if (title != null && i >= 0 && i < degrees.size()) {
+            degrees.get(i).setTitleOfThesis(title);
+        }
+    }
 
 
 
 
-//    public boolean hasGraduated() {
-//        if (canGraduate() &&
-//                graduationYear != 0 &&
-//                graduationYear >= startYear &&
-//                graduationYear <= getCurrentYear())  {
-//            return true;
-//        }
-//
-//        return false;
-//    }
-//
-//
-//    private boolean canGraduate() {
-//        if (!(degrees[ConstantValues.BACHELOR_TYPE].getCredits() >=
-//                ConstantValues.BACHELOR_CREDITS)) {
-//            return false;
-//        }
-//
-//        if (!(degrees[ConstantValues.MASTER_TYPE].getCredits() >=
-//                ConstantValues.MASTER_CREDITS)) {
-//            return false;
-//        }
-//
-//        if (!(degrees[ConstantValues.MASTER_TYPE].getTitleOfThesis() != null &&
-//                !degrees[ConstantValues.MASTER_TYPE].getTitleOfThesis().equals(ConstantValues.NO_TITLE)
-//        )) {
-//            return false;
-//        }
-//
-//        if (!(degrees[ConstantValues.BACHELOR_TYPE].getTitleOfThesis() != null &&
-//                !degrees[ConstantValues.BACHELOR_TYPE].getTitleOfThesis().equals(ConstantValues.NO_TITLE)
-//        )) {
-//            return false;
-//        }
-//
-//        return true;
-//    }
+
+    public boolean hasGraduated() {
+        return canGraduate() &&
+                graduationYear != 0 &&
+                graduationYear >= startYear &&
+                graduationYear <= getCurrentYear();
+    }
+
+
+
+    private boolean canGraduate() {
+        if (!(degrees.get(ConstantValues.BACHELOR_TYPE).
+                getCreditsByType(ConstantValues.MANDATORY) >=
+                ConstantValues.BACHELOR_MANDATORY) &&
+
+           !(degrees.get(ConstantValues.BACHELOR_TYPE).getCredits() >=
+                ConstantValues.BACHELOR_CREDITS)) {
+
+            return false;
+        }
+
+
+        if (!(degrees.get(ConstantValues.MASTER_TYPE).
+                getCreditsByType(ConstantValues.MANDATORY) >=
+                ConstantValues.MASTER_CREDITS) &&
+
+            !(degrees.get(ConstantValues.MASTER_TYPE).getCredits() >=
+                ConstantValues.MASTER_CREDITS)) {
+
+            return false;
+        }
+
+        if (!(degrees.get(ConstantValues.MASTER_TYPE).getTitleOfThesis() != null &&
+                !degrees.get(ConstantValues.MASTER_TYPE).getTitleOfThesis().equals(ConstantValues.NO_TITLE)
+        )) {
+            return false;
+        }
+
+        if (!(degrees.get(ConstantValues.BACHELOR_TYPE).getTitleOfThesis() != null &&
+                !degrees.get(ConstantValues.BACHELOR_TYPE).getTitleOfThesis().equals(ConstantValues.NO_TITLE)
+        )) {
+            return false;
+
+        }
+        return true;
+    }
+
+
+    public void printCourses() {
+        for (Degree dd : degrees) {
+            if (dd != null) {
+
+                for (StudentCourse c : dd.getCourses()) {
+                    if (c != null)
+                        System.out.println(c);
+                }
+                System.out.println();
+            }
+        }
+    }
+
+
+    public void printDegrees() {
+        for (Degree dd : degrees) {
+            System.out.println(dd.toString());
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 //    public int getStudyYears() {
@@ -343,3 +305,43 @@ public class Student extends Person {
 //                tab + tab + "Title of MSc Thesis: " + degrees[1].getTitleOfThesis() ;
 //    }
 }
+
+// ************************************************************
+// ****     poistetut  **********************
+
+//    public String getFirstName() {
+//        return firstName;
+//    }
+//
+//
+//    public void setFirstName(String firstName) {
+//        if (firstName != null &&
+//                !firstName.equals("")) {
+//            this.firstName = firstName;
+//        }
+//    }
+//
+//
+//    public String getLastName() {
+//        return lastName;
+//    }
+//
+//
+//    public void setLastName(String lastName) {
+//        if (lastName != null &&
+//                !lastName.equals("")) {
+//            this.lastName = lastName;
+//        }
+//    }
+
+
+//    private int getRandomId() {
+//        int min = ConstantValues.MIN_ID;
+//        int max = ConstantValues.MAX_ID;
+//        int studentId;
+//
+//        studentId = (int) (Math.random() * ((max - min) + 1)) + min;
+//
+//        return studentId;
+//    }
+

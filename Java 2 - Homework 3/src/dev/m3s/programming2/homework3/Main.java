@@ -1,6 +1,8 @@
 package dev.m3s.programming2.homework3;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,78 +33,83 @@ public class Main {
 
         // Kohta 6: ** Set years to DesignatedCourse
 
-        // Kohta 7: ** Sette DesignatedCourse first teacher
+        // Kohta 7: ** Set DesignatedCourse first teacher
 
-        // Kohta 8: ** Sette DesignatedCourse first teacher
+        // Kohta 8: ** Set DesignatedCourse first teacher
+
+        // Kohta 9: ** Print first teacher details toString
+
+        // Kohta 10: ** Print second teacher details toString
 
 
-//        // Kohta 5: ** StudentCourss for student1
-//        StudentCourse Studentcourse1 = new StudentCourse(course1, 1, 2013);
-//        StudentCourse Studentcourse2 = new StudentCourse(course2, 1, 2014);
-//        StudentCourse Studentcourse3 = new StudentCourse(course3, 1, 2015);
-//        StudentCourse Studentcourse4 = new StudentCourse(course4, 4, 2016);
-//        StudentCourse Studentcourse5 = new StudentCourse(course5, 5, 2017);
-//        StudentCourse Studentcourse6 = new StudentCourse(course6, 1, 2018);
-//        StudentCourse Studentcourse7 = new StudentCourse(course7, 1, 2019);
-//        StudentCourse Studentcourse8 = new StudentCourse(course8, 2, 2020);
-//        StudentCourse Studentcourse9 = new StudentCourse(course9, 0, 2021);
-//        StudentCourse Studentcourse10 = new StudentCourse(course10, 'A', 2021);
-//        StudentCourse Studentcourse11 = new StudentCourse(course11, 'F', 2022);
-//
-//        // Kohta 4: ** Array of Bachelor StudentCourses for student1
-//        StudentCourse[] StudentBachelorCourses = new StudentCourse[50];
-//        StudentBachelorCourses[0] = Studentcourse1;
-//        StudentBachelorCourses[1] = Studentcourse2;
-//        StudentBachelorCourses[2] = Studentcourse3;
-//        StudentBachelorCourses[3] = Studentcourse4;
-//        StudentBachelorCourses[4] = Studentcourse5;
-//
-//        // Kohta 5 ** Array of Master StudentCourses for student1
-//        StudentCourse[] StudentMasterCourses = new StudentCourse[50];
-//        StudentMasterCourses[5] = Studentcourse6;
-//        StudentMasterCourses[6] = Studentcourse7;
-//        StudentMasterCourses[7] = Studentcourse8;
-//        StudentMasterCourses[8] = Studentcourse9;
-//        StudentMasterCourses[9] = Studentcourse10;
-//        StudentMasterCourses[10] = Studentcourse11;
-//
-//        // Kohta 6 ** Set Bachelor Degree title
-//        student1.setDegreeTitle(ConstantValues.BACHELOR_TYPE,
-//                "Bachelor of Science");
-//
-//        // Kohta 7 ** Set Master Degree title
-//        student1.setDegreeTitle(ConstantValues.MASTER_TYPE,
-//                "Master of Science");
-//
-//        // Kohta 8 ** Set title of Bachelor THESIS
-//        student1.setTitleOfThesis(0, "Bachelor thesis title");
-//
-//        // Kohta 9 ** Set title of Master THESIS
-//        student1.setTitleOfThesis(1, "Masters thesis title");
-//
-//        // Kohta 10 ** Add Bachelor courses to bachelor studies for student1
-//        student1.addCourses(ConstantValues.BACHELOR_TYPE, StudentBachelorCourses);
-////
-//        // Kohta 11 ** Add Master courses to bachelor studies for student1
-//        student1.addCourses(ConstantValues.MASTER_TYPE, StudentMasterCourses);
-//
-//        // Kohta 12 ** Set Start year for student1
-//        student1.setStartYear(2001);
-//
-//        // Kohta 13 ** Set Graduation year for student1
-//        student1.setGraduationYear(2020);
-//
-//        // Kohta 14 ** Set First name for student1
-//        student1.setFirstName("Donald");
-//
-//        // Kohta 15 ** Set Last name for student1
-//        student1.setLastName("Duck");
-//
-//        // Kohta 16 ** Print Student details using toString() (via Student-class)
-////        System.out.println(student1.toString());
-//
-//        // Kohta 17 **  Set birthdate of the student1
+        // Kohta 11: ** StudentCourss for student1
+        StudentCourse Studentcourse1 = new StudentCourse(course1, 1, 2013);
+        StudentCourse Studentcourse2 = new StudentCourse(course2, 1, 2014);
+        StudentCourse Studentcourse3 = new StudentCourse(course3, 1, 2015);
+        StudentCourse Studentcourse4 = new StudentCourse(course4, 4, 2016);
+        StudentCourse Studentcourse5 = new StudentCourse(course5, 5, 2017);
+        StudentCourse Studentcourse6 = new StudentCourse(course6, 1, 2018);
+        StudentCourse Studentcourse7 = new StudentCourse(course7, 1, 2019);
+        StudentCourse Studentcourse8 = new StudentCourse(course8, 2, 2020);
+        StudentCourse Studentcourse9 = new StudentCourse(course9, 0, 2021);
+        StudentCourse Studentcourse10 = new StudentCourse(course10, 'A', 2021);
+        StudentCourse Studentcourse11 = new StudentCourse(course11, 'F', 2022);
+
+        // Kohta 12: ** ArrayList of Bachelor StudentCourses for student1
+        ArrayList<StudentCourse> StudentBachelorCourses = new ArrayList<>();
+        StudentBachelorCourses.add(Studentcourse1);
+        StudentBachelorCourses.add(Studentcourse2);
+        StudentBachelorCourses.add(Studentcourse3);
+        StudentBachelorCourses.add(Studentcourse4);
+        StudentBachelorCourses.add(Studentcourse5);
+
+        // Kohta 13 ** ArrayList of Master StudentCourses for student1
+        ArrayList<StudentCourse> StudentMasterCourses  = new ArrayList<>();
+        StudentBachelorCourses.add(Studentcourse6);
+        StudentBachelorCourses.add(Studentcourse7);
+        StudentBachelorCourses.add(Studentcourse8);
+        StudentBachelorCourses.add(Studentcourse9);
+        StudentBachelorCourses.add(Studentcourse10);
+        StudentBachelorCourses.add(Studentcourse11);
+
+        // Kohta 14 ** Set Bachelor Degree title
+        student1.setDegreeTitle(ConstantValues.BACHELOR_TYPE,
+                "Bachelor of Science");
+
+        // Kohta 15 ** Set Master Degree title
+        student1.setDegreeTitle(ConstantValues.MASTER_TYPE,
+                "Master of Science");
+
+        // Kohta 16 ** Set title of Bachelor THESIS
+        student1.setTitleOfThesis(0, "Bachelor thesis title");
+
+        // Kohta 17 ** Set title of Master THESIS
+        student1.setTitleOfThesis(1, "Masters thesis title");
+
+        // Kohta 18 ** Add Bachelor courses to bachelor studies for student1
+        student1.addCourses(ConstantValues.BACHELOR_TYPE, StudentBachelorCourses);
+
+        // Kohta 19 ** Add Master courses to bachelor studies for student1
+        student1.addCourses(ConstantValues.MASTER_TYPE, StudentMasterCourses);
+
+        // Kohta 20 ** Set Start year for student1
+        student1.setStartYear(2001);
+
+        // Kohta 21 ** Set Graduation year for student1
+        student1.setGraduationYear(2020);
+
+        // Kohta 22 ** Print Student details using toString() (via Student-class)
+//        System.out.println(student1.toString());
+
+        // Kohta 23 **  Set birthdate of the student1
 //        student1.setBirthdate("230498-045T");
+
+        // Kohta 24 **  Set title of Bacherlor thesis
+        // “Christmas - The most wonderful time of
+        //the year”
+
+
+
 //
 ////// *************************************************
 ////// *************************************************
@@ -112,22 +119,16 @@ public class Main {
 //        System.out.println(student1.toString());
 
 
-        Student stud = new Student();
-
-        stud.setFirstName("Jukka");
-        System.out.println(stud.getFirstName());
-
-        stud.setLastName("Poika");
-        System.out.println(stud.getLastName());
-
-        stud.setBirthdate("191084-147R");
-        System.out.println(stud.getBirthdate());
 
 
-        System.out.println(stud.getIdString());
-        System.out.println(stud.getId());
-        stud.setId(1);
-        System.out.println(stud.getId());
+        System.out.println(student1.getGraduationYear());
+        System.out.println(student1.getStartYear());
+
+
+        student1.printCourses();
+
+
+
 
     }
 }
