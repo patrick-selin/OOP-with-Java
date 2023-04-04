@@ -21,7 +21,7 @@ public class Degree {
     }
 
 
-    public void addStudentCourses(StudentCourse[] courses){
+    public void addStudentCourses(ArrayList<StudentCourse> courses){
         if (courses != null ) {
             for (StudentCourse course : courses) {
                 if (course != null && count < MAX_COURSES) {
@@ -35,7 +35,7 @@ public class Degree {
     public boolean addStudentCourse(StudentCourse course) {
         if (course != null && count < MAX_COURSES) {
             myCourses.add(course);
-//            myCourses[count] = course;
+
             this.count++;
 
             return true;

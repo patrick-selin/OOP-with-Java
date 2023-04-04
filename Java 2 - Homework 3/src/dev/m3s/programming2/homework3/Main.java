@@ -14,7 +14,7 @@ public class Main {
 
 
         // Kohta 3: ** Create new Student object
-        Student student1 = new Student();
+        Student student1 = new Student("Donald", "Duck");
 
         // Kohta 4: ** Create 11 Courses
         Course course1 = new Course("Programming 1", 811104, 'P', 1, 1, 5.0, true);
@@ -65,12 +65,12 @@ public class Main {
 
         // Kohta 13 ** ArrayList of Master StudentCourses for student1
         ArrayList<StudentCourse> StudentMasterCourses  = new ArrayList<>();
-        StudentBachelorCourses.add(Studentcourse6);
-        StudentBachelorCourses.add(Studentcourse7);
-        StudentBachelorCourses.add(Studentcourse8);
-        StudentBachelorCourses.add(Studentcourse9);
-        StudentBachelorCourses.add(Studentcourse10);
-        StudentBachelorCourses.add(Studentcourse11);
+        StudentMasterCourses.add(Studentcourse6);
+        StudentMasterCourses.add(Studentcourse7);
+        StudentMasterCourses.add(Studentcourse8);
+        StudentMasterCourses.add(Studentcourse9);
+        StudentMasterCourses.add(Studentcourse10);
+        StudentMasterCourses.add(Studentcourse11);
 
         // Kohta 14 ** Set Bachelor Degree title
         student1.setDegreeTitle(ConstantValues.BACHELOR_TYPE,
@@ -81,7 +81,7 @@ public class Main {
                 "Master of Science");
 
         // Kohta 16 ** Set title of Bachelor THESIS
-        student1.setTitleOfThesis(0, "Bachelor thesis title");
+        student1.setTitleOfThesis(1, "Bachelor thesis title");
 
         // Kohta 17 ** Set title of Master THESIS
         student1.setTitleOfThesis(1, "Masters thesis title");
@@ -121,11 +121,13 @@ public class Main {
 
 
 
-        System.out.println(student1.getGraduationYear());
-        System.out.println(student1.getStartYear());
+//        System.out.println(student1.getGraduationYear());
+//        System.out.println(student1.getStartYear());
 
+//        student1.printDegrees();
+//
+//        System.out.println(student1.toString());
 
-        student1.printCourses();
 
 
 

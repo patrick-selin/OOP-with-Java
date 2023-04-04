@@ -116,8 +116,8 @@ public class Student extends Person {
         if (courses != null && i >= 0 && i < degrees.size()) {
 
 
-            for (StudentCourse x: courses) {
-                if ( x != null && degrees.get(i).addStudentCourse(x)) {
+            for (StudentCourse c: courses) {
+                if ( c != null && degrees.get(i).addStudentCourse(c)) {
                     numAddedCourses++;
                 }
             }
@@ -126,12 +126,26 @@ public class Student extends Person {
     }
 
 
-//    public void printDegrees() {
-//        for (Degree dd : degrees) {
-//            System.out.println(dd.toString());
-//        }
-//
-//    }
+    public void printCourses() {
+        for (Degree dd : degrees) {
+            if (dd != null) {
+
+                for (StudentCourse c : dd.getCourses()) {
+                    if (c != null)
+                        System.out.println(c);
+                }
+                System.out.println();
+            }
+        }
+    }
+
+
+    public void printDegrees() {
+        for (Degree dd : degrees) {
+            System.out.println(dd.toString());
+        }
+
+    }
 
 
     public void setTitleOfThesis(int i, String title) {
@@ -139,7 +153,6 @@ public class Student extends Person {
             degrees.get(i).setTitleOfThesis(title);
         }
     }
-
 
 
 
@@ -191,82 +204,16 @@ public class Student extends Person {
     }
 
 
-    public void printCourses() {
-        for (Degree dd : degrees) {
-            if (dd != null) {
-
-                for (StudentCourse c : dd.getCourses()) {
-                    if (c != null)
-                        System.out.println(c);
-                }
-                System.out.println();
-            }
-        }
-    }
-
-
-    public void printDegrees() {
-        for (Degree dd : degrees) {
-            System.out.println(dd.toString());
+    public int getStudyYears() {
+        if (hasGraduated()) {
+            return getGraduationYear() - this.startYear;
         }
 
+        return getCurrentYear() - this.startYear;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-//    public int getStudyYears() {
-//        if (hasGraduated()) {
-//            return getGraduationYear() - this.startYear;
-//        }
-//
-//        return getCurrentYear() - this.startYear;
-//    }
-//
-//
-//    private String statusPrinter() {
-//        if (hasGraduated()) {
-//            return "The student has graduated in " + graduationYear;
-//        }
-//        else {
-//            return "The student has not graduated, yet.";
-//        }
-//    }
-//
-//
-//    public double getAllCredits() {
-//        return degrees[0].getCredits() + degrees[1].getCredits();
-//    }
-//
-//
-//    public String printCredits(int degree) {
-//        if (degree == ConstantValues.BACHELOR_TYPE) {
-//            if ( degrees[ConstantValues.BACHELOR_TYPE].getCredits()
-//                    >= ConstantValues.BACHELOR_CREDITS) {
-//                return "Total bachelor credits completed";
-//            }
-//            else return "Missing bachelor's credits " +
-//                    (ConstantValues.BACHELOR_CREDITS -
-//                            degrees[ConstantValues.BACHELOR_TYPE].getCredits());
-//        }
-//        if ( degrees[ConstantValues.MASTER_TYPE].getCredits() >= ConstantValues.MASTER_CREDITS) {
-//            return "Total master's credits completed";
-//        }
-//        else return "Missing master's credits  " +
-//                (ConstantValues.MASTER_CREDITS - degrees[ConstantValues.MASTER_TYPE].getCredits());
-//    }
 
     public String getIdString() {
-//        String temppi = "Student TEMPPI id: 42";
-        // returm a sting of a user id "Student id: 42"
 
         String IdString = "Student id: " + this.id;
 
@@ -274,36 +221,73 @@ public class Student extends Person {
     }
 
 
-//    @Override
-//    public String toString() {
-//        String tab = "\t";
-//        String printL = "\n";
-//
-//        return "Student id: " + id + printL +
-//                tab + "FirstName: " + firstName + ", " +
-//                "LastName: " + lastName + printL +
-//                tab + "Date of birth: " + birthDate + printL +
-//                tab + "Status: " + statusPrinter() + printL +
-//                tab + "Start year: " + startYear + " (studies have lasted for " +
-//                getStudyYears() + " years)" + printL +
-//
-//                tab + "Total credits: " + getAllCredits() +
-//                " (GPA = " + "99,9" + ")" + printL +
-//
-//                tab + "Bachelor credits: " + degrees[0].getCredits()  + printL +
-//                tab + tab + printCredits(ConstantValues.BACHELOR_TYPE) +
-//                " (" + degrees[0].getCredits() + "/" + ConstantValues.BACHELOR_CREDITS +
-//                ")" + printL +
-//
-//                tab + tab + "Title of BSc Thesis: " + degrees[0].getTitleOfThesis() + printL +
-//
-//                tab + "Master Credits: " + degrees[1].getCredits()  + printL +
-//                tab + tab + printCredits(ConstantValues.MASTER_TYPE) +
-//                " (" + degrees[1].getCredits() + "/" + ConstantValues.MASTER_CREDITS +
-//                ")" + printL +
-//
-//                tab + tab + "Title of MSc Thesis: " + degrees[1].getTitleOfThesis() ;
-//    }
+    private String statusPrinter() {
+        if (hasGraduated()) {
+            return "The student has graduated in " + graduationYear;
+        }
+        else {
+            return "The student has not graduated, yet.";
+        }
+    }
+
+
+    public double getAllCredits() {
+        return degrees.get(ConstantValues.BACHELOR_TYPE).getCredits() +
+               degrees.get(ConstantValues.MASTER_TYPE).getCredits();
+
+    }
+
+
+    public String printCredits(int degree) {
+        if (degree == ConstantValues.BACHELOR_TYPE) {
+            if ( degrees.get(ConstantValues.BACHELOR_TYPE).getCredits()
+                    >= ConstantValues.BACHELOR_CREDITS) {
+                return "Total bachelor credits completed";
+            }
+            else return "Missing bachelor's credits " +
+                    (ConstantValues.BACHELOR_CREDITS -
+                            degrees.get(ConstantValues.BACHELOR_TYPE).getCredits());
+        }
+        if ( degrees.get(ConstantValues.MASTER_TYPE).getCredits() >= ConstantValues.MASTER_CREDITS) {
+            return "Total master's credits completed";
+        }
+        else return "Missing master's credits  " +
+                (ConstantValues.MASTER_CREDITS - degrees.get(ConstantValues.MASTER_TYPE).getCredits());
+    }
+
+
+
+
+    @Override
+    public String toString() {
+        String tab = "\t";
+        String printL = "\n";
+
+        return "Student id: " + id + printL +
+                tab + "FirstName: " + getFirstName() + ", " +
+                "LastName: " + getLastName()+ printL +
+                tab + "Date of birth: " + getBirthdate() + printL +
+                tab + "Status: " + statusPrinter() + printL +
+                tab + "Start year: " + startYear + " (studies have lasted for " +
+                getStudyYears() + " years)" + printL +
+
+                tab + "Total credits: " + getAllCredits() +
+                " (GPA = " + "99,9" + ")" + printL +
+
+                tab + "Bachelor credits: " + degrees.get(0).getCredits()  + printL +
+                tab + tab + printCredits(ConstantValues.BACHELOR_TYPE) +
+                " (" + degrees.get(0).getCredits() + "/" + ConstantValues.BACHELOR_CREDITS +
+                ")" + printL +
+
+                tab + tab + "Title of BSc Thesis: " + degrees.get(0).getTitleOfThesis() + printL +
+
+                tab + "Master Credits: " + degrees.get(1).getCredits()  + printL +
+                tab + tab + printCredits(ConstantValues.MASTER_TYPE) +
+                " (" + degrees.get(1).getCredits() + "/" + ConstantValues.MASTER_CREDITS +
+                ")" + printL +
+
+                tab + tab + "Title of MSc Thesis: " + degrees.get(1).getTitleOfThesis() ;
+    }
 }
 
 // ************************************************************
