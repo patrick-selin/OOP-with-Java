@@ -8,9 +8,21 @@ public class Main {
     public static void main(String[] args) {
 
         // Kohta 1 : ** Create ResponsibleTeacher, set birthdate, set monthly payment
+        ResponsibleTeacher responsibleTeacher1 = new ResponsibleTeacher("Mouse", "Micky");
+        responsibleTeacher1.setBirthdate("230498-045T");
 
+        MonthlyPayment mpayment = new MonthlyPayment();
+        mpayment.setSalary(1.11);
+        responsibleTeacher1.setPayment(mpayment);
 
         // Kohta 2: ** Create AssistantTeacher, set birthdate, set monthly payment
+        AssistantTeacher assistantTeacher1 = new AssistantTeacher("The Dog", "Goofy");
+        assistantTeacher1.setBirthdate("141200A2315");
+
+        HourBasedPayment hpayment = new HourBasedPayment();
+        hpayment.setEurosPerHour(3.5);
+        hpayment.setHours(11.0);
+        assistantTeacher1.setPayment(hpayment);
 
 
         // Kohta 3: ** Create new Student object
@@ -30,17 +42,29 @@ public class Main {
         Course course11 = new Course("Final master studies", 888888, 'S', 1, 5, 18.0, false);
 
         // Kohta 5: ** Create DesignatedCourse
-
         // Kohta 6: ** Set years to DesignatedCourse
+        DesignatedCourse dcourse1 = new DesignatedCourse(course3, true, 2023);
+        DesignatedCourse dcourse2 = new DesignatedCourse(course4, true, 2023);
+        DesignatedCourse dcourse3 = new DesignatedCourse(course10, true, 2022);
+        DesignatedCourse dcourse4 = new DesignatedCourse(course11, true, 2023);
+
+        ArrayList<DesignatedCourse> dcourselist = new ArrayList<>();
+        dcourselist.add(dcourse1);
+        dcourselist.add(dcourse2);
+        dcourselist.add(dcourse3);
+        dcourselist.add(dcourse4);
 
         // Kohta 7: ** Set DesignatedCourse first teacher
+        responsibleTeacher1.setCourses(dcourselist);
 
         // Kohta 8: ** Set DesignatedCourse first teacher
+        assistantTeacher1.setCourses(dcourselist);
 
         // Kohta 9: ** Print first teacher details toString
+        System.out.println(responsibleTeacher1.toString());
 
         // Kohta 10: ** Print second teacher details toString
-
+        System.out.println(assistantTeacher1.toString());
 
         // Kohta 11: ** StudentCourss for student1
         StudentCourse Studentcourse1 = new StudentCourse(course1, 1, 2013);
@@ -102,12 +126,28 @@ public class Main {
 //        System.out.println(student1.toString());
 
         // Kohta 23 **  Set birthdate of the student1
-//        student1.setBirthdate("230498-045T");
+        student1.setBirthdate("230498-045T");
 
         // Kohta 24 **  Set title of Bacherlor thesis
-        // “Christmas - The most wonderful time of
-        //the year”
+        student1.setTitleOfThesis(0, "Christmas - The most wonderful time of the year");
 
+        // Kohta 25 **  Set title of Master thesis
+        student1.setTitleOfThesis(1, "Dreaming of a white Christmas");
+
+        // Kohta 26 **  Set grade student course 919191 to 3
+//        student1.degrees.get(1).getCourses(). , epäselvä vielä
+
+        // Kohta 27 **  Set graduation year to 2020
+        student1.setGraduationYear(2020);
+
+        // Kohta 28 **  Print student toString
+        System.out.println(student1.toString());
+
+        // Kohta 29 **  Print student DEGREES
+        student1.printDegrees();
+
+        // Kohta 30 **  Print student COURSES
+        student1.printCourses();
 
 
 //

@@ -1,6 +1,6 @@
 package dev.m3s.programming2.homework3;
 
-public class MonthlyPayment {
+public class MonthlyPayment implements Payment {
 
     //**********    ATTRIBUTES/PARAMETERS
     //***********************************
@@ -24,8 +24,9 @@ public class MonthlyPayment {
         }
     }
 
-    double calculatePayment() {
-        return salary;
+    public double calculatePayment() {
+
+        return 5.55;
     }
 
 
