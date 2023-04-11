@@ -7,7 +7,7 @@ public abstract class Employee extends Person implements Payment {
     //**********    ATTRIBUTES/PARAMETERS
     //***********************************
 
-    private int empId = getRandomId(ConstantValues.MIN_EMP_ID , ConstantValues.MAX_EMP_ID);
+    private String empId = String.valueOf(getRandomId(ConstantValues.MIN_EMP_ID , ConstantValues.MAX_EMP_ID));
     private int startYear = getCurrentYear();
     Payment payment;
 
@@ -28,9 +28,9 @@ public abstract class Employee extends Person implements Payment {
 
 
     public String getIdString() {
-        String IdString = "Student id: " + this.empId;
+//        String IdString = "Student id: " + this.empId;
 
-        return IdString;
+        return empId;
     }
 
     public int getStartYear() {
@@ -64,12 +64,11 @@ public abstract class Employee extends Person implements Payment {
 
 
     public double calculatePayment() {
+        double paymentAmount = 0.00;
 
-        // kesken
+        paymentAmount = payment.calculatePayment();
 
-        double temppid = 1.23;
-
-        return temppid;
+        return paymentAmount;
     }
 
     protected abstract String getEmployeeIdString();

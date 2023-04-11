@@ -8,10 +8,7 @@ public class AssistantTeacher extends Employee implements Teacher, Payment{
     //**********    ATTRIBUTES/PARAMETERS
     //***********************************
 
-
     ArrayList<DesignatedCourse> courses = new ArrayList<>();
-
-
 
     //**********    CONSTRUCTOR
     //***********************************
@@ -21,17 +18,13 @@ public class AssistantTeacher extends Employee implements Teacher, Payment{
         super(lname, fname);
     }
 
-
-
     //**********    METHODS
     //***********************************Em
 
 
     public String getEmployeeIdString()  {
 
-        String temppistr2 = "OY_ASSISTANT_";
-
-        return temppistr2;
+        return "OY_ASSISTANT_";
 
     }
 
@@ -52,11 +45,31 @@ public class AssistantTeacher extends Employee implements Teacher, Payment{
         }
     }
 
+    public String printAssistanCourses() {
+
+        String temppi = "";
+
+        for (DesignatedCourse dc : courses ) {
+            temppi += "\t\t" + "[course=" + dc.getCourse() +
+                    ", year=" + dc.getYear() + "]" + "\n";
+        }
+
+        return temppi;
+    }
+
 
     @Override
-    public String toString() {
-        return "AssistantTeacher{" +
-                "courses=" + courses +
-                '}';
+     public String toString() {
+        String tab = "\t";
+        String printL = "\n";
+
+        return "Teacher id: " + getEmployeeIdString() +
+                getIdString()               + printL +
+                tab + tab + "FirstName: " + getFirstName() + ", " +
+                "LastName: " + getLastName()+ printL +
+                tab + tab + "Birthdate: " + getBirthdate() + printL +
+                tab + tab + "Salary: " + getPayment().calculatePayment() + printL +
+                tab + tab + "Assistant for courses: " + printL +
+                printAssistanCourses();
     }
 }

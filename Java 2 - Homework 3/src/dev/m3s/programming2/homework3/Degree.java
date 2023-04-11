@@ -12,8 +12,7 @@ public class Degree {
     private String titleOfThesis = ConstantValues.NO_TITLE;
 //    StudentCourse[] myCourses = new StudentCourse[MAX_COURSES];
     ArrayList<StudentCourse> myCourses = new ArrayList<StudentCourse>();
-    // ArrayList<String> cars = new ArrayList<String>();
-    // cars.add("Volvo");
+
 
 
     public List<StudentCourse> getCourses() {
@@ -152,18 +151,36 @@ public class Degree {
         }
     }
 
+
+    // KESKEN
     public List<Double> getGPA (int type) {
+
+        // puuttuu vielä JOS EI KURSSEJA PALAUTA
+        // [0.00, 0.00, 0.00]
+        // clean up code and variable names
         ArrayList<Double> listaa = new ArrayList<>();
-//        listaa.add(1.38);
-
-        // CALCULATE
-        // SUM, COUNT, AVERAGE
 
 
+        double sum = 0.00;
+        double count = 0.00;
+
+
+        for (StudentCourse c : myCourses) {
+            if (c.getCourse().isNumericGrade()) {
+                sum += c.getGradeNum();
+                count++;
+            }
+
+        }
+
+        listaa.add(sum);
+        listaa.add(count);
+        listaa.add(sum / count);
 
 
         return listaa;
     }
+
 
     private String printDegreeCourses() {
         int counter = 1;

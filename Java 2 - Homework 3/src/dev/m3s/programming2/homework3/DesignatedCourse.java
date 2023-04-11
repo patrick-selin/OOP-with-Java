@@ -19,15 +19,14 @@ public class DesignatedCourse {
 
 
     public DesignatedCourse() {
-        //
-        // course
-        // responsible
-        // year
+
     }
 
 
     public DesignatedCourse(Course course, boolean responsible, int year) {
-
+        setCourse(course);
+        setResponsible(responsible);
+        setYear(year);
     }
 
     //**********    METHODS
@@ -39,6 +38,7 @@ public class DesignatedCourse {
     }
 
     public void setCourse(Course course) {
+
         this.course = course;
     }
 
@@ -60,6 +60,7 @@ public class DesignatedCourse {
     }
 
     public void setYear(int year) {
+
         this.year = year;
     }
 }

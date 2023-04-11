@@ -7,13 +7,12 @@ public class MonthlyPayment implements Payment {
 
     private double salary = 1.11;
 
-
-
     //**********    METHODS
     //***********************************
 
 
     public double getSalary() {
+
         return salary;
     }
 
@@ -25,8 +24,8 @@ public class MonthlyPayment implements Payment {
     }
 
     public double calculatePayment() {
-
-        return 5.55;
+    // ??????????
+        return salary;
     }
 
 

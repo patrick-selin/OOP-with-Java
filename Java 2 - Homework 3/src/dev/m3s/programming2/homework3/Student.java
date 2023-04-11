@@ -256,6 +256,17 @@ public class Student extends Person {
     }
 
 
+    public String printMandatoryCredits(int degree) {
+
+        if (degree == ConstantValues.BACHELOR_TYPE) {
+        return "All mandatory bachelor credits completed (" +
+                degrees.get(0).getCreditsByType(1);
+
+        } else return "All mandatory master credits completed (" +
+                degrees.get(1).getCreditsByType(1);
+    }
+
+
 
 
     @Override
@@ -272,12 +283,19 @@ public class Student extends Person {
                 getStudyYears() + " years)" + printL +
 
                 tab + "Total credits: " + getAllCredits() +
-                " (GPA = " + "99,9" + ")" + printL +
+                " (GPA = " + degrees.get(0).getGPA(2) + ")" + printL +
 
                 tab + "Bachelor credits: " + degrees.get(0).getCredits()  + printL +
                 tab + tab + printCredits(ConstantValues.BACHELOR_TYPE) +
                 " (" + degrees.get(0).getCredits() + "/" + ConstantValues.BACHELOR_CREDITS +
                 ")" + printL +
+
+                tab + tab + printMandatoryCredits(0) + "/" +
+                ConstantValues.BACHELOR_MANDATORY + ")" + printL +
+
+                tab + tab + "GPA of Bachelor studies: " +
+                degrees.get(0).getGPA(2).get(2) + printL +
+
 
                 tab + tab + "Title of BSc Thesis: " + degrees.get(0).getTitleOfThesis() + printL +
 
@@ -286,46 +304,13 @@ public class Student extends Person {
                 " (" + degrees.get(1).getCredits() + "/" + ConstantValues.MASTER_CREDITS +
                 ")" + printL +
 
+                tab + tab + printMandatoryCredits(1) + "/" +
+                ConstantValues.MASTER_MANDATORY + ")" + printL +
+
+                tab + tab + "GPA of Bachelor studies: " +
+                degrees.get(1).getGPA(2).get(2) + printL +
+
                 tab + tab + "Title of MSc Thesis: " + degrees.get(1).getTitleOfThesis() ;
     }
 }
-
-// ************************************************************
-// ****     poistetut  **********************
-
-//    public String getFirstName() {
-//        return firstName;
-//    }
-//
-//
-//    public void setFirstName(String firstName) {
-//        if (firstName != null &&
-//                !firstName.equals("")) {
-//            this.firstName = firstName;
-//        }
-//    }
-//
-//
-//    public String getLastName() {
-//        return lastName;
-//    }
-//
-//
-//    public void setLastName(String lastName) {
-//        if (lastName != null &&
-//                !lastName.equals("")) {
-//            this.lastName = lastName;
-//        }
-//    }
-
-
-//    private int getRandomId() {
-//        int min = ConstantValues.MIN_ID;
-//        int max = ConstantValues.MAX_ID;
-//        int studentId;
-//
-//        studentId = (int) (Math.random() * ((max - min) + 1)) + min;
-//
-//        return studentId;
-//    }
 

@@ -12,7 +12,7 @@ public class Main {
         responsibleTeacher1.setBirthdate("230498-045T");
 
         MonthlyPayment mpayment = new MonthlyPayment();
-        mpayment.setSalary(1.11);
+        mpayment.setSalary( 756.85);
         responsibleTeacher1.setPayment(mpayment);
 
         // Kohta 2: ** Create AssistantTeacher, set birthdate, set monthly payment
@@ -31,7 +31,7 @@ public class Main {
         // Kohta 4: ** Create 11 Courses
         Course course1 = new Course("Programming 1", 811104, 'P', 1, 1, 5.0, true);
         Course course2 = new Course("All kinds of basic studies", 112233, 'P', 1, 2, 45.0, true);
-        Course course3 = new Course("More basic studies", 223344, 'a', 1, 5, 50.5, true);
+        Course course3 = new Course("More basic studies", 223344, 'a', 1, 1, 50.5, true);
         Course course4 = new Course("Even more basic studies", 556677, 'a', 0, 3, 50.0, true);
         Course course5 = new Course("Final basic studies", 123123, 'A', 1, 4, 50.5, true);
         Course course6 = new Course("Programming 2", 616161, 'A', 1, 3, 25.0, true);
@@ -58,13 +58,13 @@ public class Main {
         responsibleTeacher1.setCourses(dcourselist);
 
         // Kohta 8: ** Set DesignatedCourse first teacher
-        assistantTeacher1.setCourses(dcourselist);
+//        assistantTeacher1.setCourses(dcourselist);
 
         // Kohta 9: ** Print first teacher details toString
         System.out.println(responsibleTeacher1.toString());
 
         // Kohta 10: ** Print second teacher details toString
-        System.out.println(assistantTeacher1.toString());
+//        System.out.println(assistantTeacher1.toString());
 
         // Kohta 11: ** StudentCourss for student1
         StudentCourse Studentcourse1 = new StudentCourse(course1, 1, 2013);
@@ -141,37 +141,32 @@ public class Main {
         student1.setGraduationYear(2020);
 
         // Kohta 28 **  Print student toString
-        System.out.println(student1.toString());
+//        System.out.println(student1.toString());
 
         // Kohta 29 **  Print student DEGREES
-        student1.printDegrees();
+//        student1.printDegrees();
 
         // Kohta 30 **  Print student COURSES
-        student1.printCourses();
+//        student1.printCourses();
 
 
-//
-////// *************************************************
-////// *************************************************
-////
-////        System.out.println(student1);
-//
+
+// *************************************************
+// *************************************************
+
 //        System.out.println(student1.toString());
 
+//        System.out.println(student1.degrees.get(0).getGPA(2));
 
-
-
-//        System.out.println(student1.getGraduationYear());
-//        System.out.println(student1.getStartYear());
-
-//        student1.printDegrees();
-//
 //        System.out.println(student1.toString());
-
-
 
 
 
     }
 }
+
+
+
+
+
 

@@ -51,13 +51,34 @@ public class ResponsibleTeacher extends Employee implements Teacher, Payment {
     }
 
 
-    @Override
-    public String toString() {
-        return "ResponsibleTeacher{" +
-                "courses=" + courses +
-                '}' + getLastName() + " " + getFirstName();
+    public String printAssistanCourses() {
+
+        String temppi = "";
+
+        for (DesignatedCourse dc : courses ) {
+            temppi += "\t\t" + "[course=" + dc.getCourse() +
+                    ", year=" + dc.getYear() + "]" + "\n";
+        }
+
+        return temppi;
     }
 
+
+
+    @Override
+    public String toString() {
+        String tab = "\t";
+        String printL = "\n";
+
+        return "Teacher id: " + getEmployeeIdString() +
+                getIdString()               + printL +
+                tab + tab + "FirstName: " + getFirstName() + ", " +
+                "LastName: " + getLastName()+ printL +
+                tab + tab + "Birthdate: " + getBirthdate() + printL +
+                tab + tab + "Salary: " + getPayment().calculatePayment() + printL +
+                tab + tab + "Teacher for courses: " + printL +
+                printAssistanCourses();
+    }
 
 
 }

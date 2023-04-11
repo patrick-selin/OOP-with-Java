@@ -86,12 +86,4 @@ public abstract class Person {
     abstract String getIdString();
 
 
-//
-//
-//    public int getId() {
-//        return id;
-//    }
-
-
-
 }
