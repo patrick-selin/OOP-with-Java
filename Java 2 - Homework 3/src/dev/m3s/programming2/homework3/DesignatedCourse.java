@@ -1,5 +1,6 @@
 package dev.m3s.programming2.homework3;
 
+import java.time.Year;
 import java.util.ArrayList;
 
 public class DesignatedCourse {
@@ -38,8 +39,9 @@ public class DesignatedCourse {
     }
 
     public void setCourse(Course course) {
-
-        this.course = course;
+        if (course != null) {
+            this.course = course;
+        }
     }
 
     public boolean isResponsible() {
@@ -55,12 +57,25 @@ public class DesignatedCourse {
         this.responsible = responsible;
     }
 
+    public int getCurrentYear() {
+        return Year.now().getValue();
+    }
+
     public int getYear() {
         return year;
     }
 
     public void setYear(int year) {
+        if (year >= ConstantValues.MIN_START_YEAR &&
+            year <= getCurrentYear() + 1) {
+            this.year = year;
+        }
+    }
 
-        this.year = year;
+    @Override
+    public String toString() {
+        return  "[course=" + course +
+                ", year=" + year +
+                ']';
     }
 }

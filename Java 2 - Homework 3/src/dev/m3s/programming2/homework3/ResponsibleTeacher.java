@@ -36,12 +36,26 @@ public class ResponsibleTeacher extends Employee implements Teacher, Payment {
 
     @Override
     public String getCourses() {
+        String temppi = "";
 
-        // KESKEN
-        String temppistr = "Tää on temppi kurssidatasta";
+        for (DesignatedCourse dc : courses ) {
+            temppi += "\t\t" + printResponsibleStatus(dc.isResponsible()) +
+                    "[course=" + dc.getCourse() +
+                    ", year=" + dc.getYear() + "]" + "\n";
+        }
 
-        return temppistr;
+        return temppi;
+
     }
+
+    public String printResponsibleStatus(boolean isResponsible) {
+        if (isResponsible) {
+            return "Responsible teacher: ";
+        }
+        return "Teacher: ";
+    }
+
+
 
     public void setCourses(ArrayList<DesignatedCourse> courses) {
 
@@ -49,20 +63,6 @@ public class ResponsibleTeacher extends Employee implements Teacher, Payment {
             this.courses = courses;
         }
     }
-
-
-    public String printAssistanCourses() {
-
-        String temppi = "";
-
-        for (DesignatedCourse dc : courses ) {
-            temppi += "\t\t" + "[course=" + dc.getCourse() +
-                    ", year=" + dc.getYear() + "]" + "\n";
-        }
-
-        return temppi;
-    }
-
 
 
     @Override
@@ -77,8 +77,7 @@ public class ResponsibleTeacher extends Employee implements Teacher, Payment {
                 tab + tab + "Birthdate: " + getBirthdate() + printL +
                 tab + tab + "Salary: " + getPayment().calculatePayment() + printL +
                 tab + tab + "Teacher for courses: " + printL +
-                printAssistanCourses();
+                getCourses();
     }
-
 
 }

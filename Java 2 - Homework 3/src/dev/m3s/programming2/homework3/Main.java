@@ -44,8 +44,8 @@ public class Main {
         // Kohta 5: ** Create DesignatedCourse
         // Kohta 6: ** Set years to DesignatedCourse
         DesignatedCourse dcourse1 = new DesignatedCourse(course3, true, 2023);
-        DesignatedCourse dcourse2 = new DesignatedCourse(course4, true, 2023);
-        DesignatedCourse dcourse3 = new DesignatedCourse(course10, true, 2022);
+        DesignatedCourse dcourse2 = new DesignatedCourse(course4, false, 2023);
+        DesignatedCourse dcourse3 = new DesignatedCourse(course10, false, 2022);
         DesignatedCourse dcourse4 = new DesignatedCourse(course11, true, 2023);
 
         ArrayList<DesignatedCourse> dcourselist = new ArrayList<>();
