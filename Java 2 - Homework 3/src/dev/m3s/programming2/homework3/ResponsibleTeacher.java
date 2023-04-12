@@ -4,33 +4,17 @@ import java.util.ArrayList;
 
 public class ResponsibleTeacher extends Employee implements Teacher, Payment {
 
-
-    //**********    ATTRIBUTES/PARAMETERS
-    //***********************************
-
-
     ArrayList<DesignatedCourse> courses = new ArrayList<>();
 
-
-
-    //**********    CONSTRUCTOR
-    //***********************************
 
     public  ResponsibleTeacher(String lname, String fname) {
         super(lname, fname);
     }
 
 
-    //**********    METHODS
-    //***********************************
-
-
     public String getEmployeeIdString()  {
-
         String temppistr2 = "OY_TEACHER_";
-
         return temppistr2;
-
     }
 
 
@@ -45,7 +29,6 @@ public class ResponsibleTeacher extends Employee implements Teacher, Payment {
         }
 
         return temppi;
-
     }
 
     public String printResponsibleStatus(boolean isResponsible) {
@@ -58,7 +41,6 @@ public class ResponsibleTeacher extends Employee implements Teacher, Payment {
 
 
     public void setCourses(ArrayList<DesignatedCourse> courses) {
-
         if (courses!= null) {
             this.courses = courses;
         }
@@ -79,5 +61,4 @@ public class ResponsibleTeacher extends Employee implements Teacher, Payment {
                 tab + tab + "Teacher for courses: " + printL +
                 getCourses();
     }
-
 }

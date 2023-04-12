@@ -25,6 +25,7 @@ public class Degree {
             for (StudentCourse course : courses) {
                 if (course != null && count < MAX_COURSES) {
                     addStudentCourse(course);
+
                 }
             }
         }

@@ -5,22 +5,12 @@ import java.util.ArrayList;
 
 public class DesignatedCourse {
 
-    //**********    ATTRIBUTES/PARAMETERS
-    //***********************************
-
-
     Course course;
     private boolean responsible;
     private int year;
 
 
-
-    //**********    CONSTRUCTOR
-    //***********************************
-
-
     public DesignatedCourse() {
-
     }
 
 
@@ -30,19 +20,18 @@ public class DesignatedCourse {
         setYear(year);
     }
 
-    //**********    METHODS
-    //***********************************
-
 
     public Course getCourse() {
         return course;
     }
+
 
     public void setCourse(Course course) {
         if (course != null) {
             this.course = course;
         }
     }
+
 
     public boolean isResponsible() {
         return responsible;
@@ -57,13 +46,16 @@ public class DesignatedCourse {
         this.responsible = responsible;
     }
 
+
     public int getCurrentYear() {
         return Year.now().getValue();
     }
 
+
     public int getYear() {
         return year;
     }
+
 
     public void setYear(int year) {
         if (year >= ConstantValues.MIN_START_YEAR &&
@@ -71,6 +63,7 @@ public class DesignatedCourse {
             this.year = year;
         }
     }
+
 
     @Override
     public String toString() {

@@ -4,26 +4,15 @@ import java.util.ArrayList;
 
 public class AssistantTeacher extends Employee implements Teacher, Payment{
 
-
-    //**********    ATTRIBUTES/PARAMETERS
-    //***********************************
-
     ArrayList<DesignatedCourse> courses = new ArrayList<>();
 
-    //**********    CONSTRUCTOR
-    //***********************************
 
     public AssistantTeacher(String lname, String fname) {
-
         super(lname, fname);
     }
 
-    //**********    METHODS
-    //***********************************Em
-
 
     public String getEmployeeIdString()  {
-
         return "OY_ASSISTANT_";
 
     }
@@ -31,7 +20,6 @@ public class AssistantTeacher extends Employee implements Teacher, Payment{
 
     @Override
     public String getCourses() {
-
         // utilize DesignatedCourse-class toString()-method
         String temppistr = "Tää on temppi kurssidatasta";
 
@@ -39,14 +27,12 @@ public class AssistantTeacher extends Employee implements Teacher, Payment{
     }
 
     public void setCourses(ArrayList<DesignatedCourse> courses) {
-
         if (courses!= null) {
             this.courses = courses;
         }
     }
 
     public String printAssistanCourses() {
-
         String temppi = "";
 
         for (DesignatedCourse dc : courses ) {
