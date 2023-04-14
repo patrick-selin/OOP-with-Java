@@ -15,28 +15,25 @@ public class Main {
 
         Hangman game1 = new Hangman(wordList, 5);
 
-        System.out.println(game1.word + "  <--- Tämä on arvattava sana");
-
-
-
         while (true) {
             System.out.println("The hidden word...");
             System.out.println(game1.printState());
-
             System.out.println("Guess left: " + game1.guessesLeft());
             System.out.println("Guessed letters: " + game1.guesses());
-
 
             //kysy kirjainta
             System.out.print("Guess a letter: ");
             char letterGuess = input.next().charAt(0);
             game1.guess(letterGuess);
+            if (game1.guessesLeft() < 1) {
+                System.out.println("Sorry, you lost!");
+                System.out.println("The hidden word was: " + game1.word());
+                break;
+            }
 
-            // if kaikkki oikein tai guess left 0
-            // käytä theEnd()-methodia
             if (game1.theEnd()) {
                 System.out.println("Congratulations! You won!!!");
-                System.out.println("The hidden word was: " + game1.word);
+                System.out.println("The hidden word was: " + game1.word());
                 break;
             }
 

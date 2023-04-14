@@ -7,10 +7,10 @@ public class Hangman {
     //**********    ATTRIBUTES/PARAMETERS
     //***********************************
 
-    String word;
-    int guesses = 5;
-    ArrayList<Character> guessedWords = new ArrayList<>();
-    int correctCount = 0;
+    private String word;
+    private int guesses = 5;
+    private ArrayList<Character> guessedWords = new ArrayList<>();
+    private int correctCount = 0;
 
 
     //**********    CONSTRUCTORS
@@ -25,14 +25,11 @@ public class Hangman {
     //***********************************
 
     public String printState() {
-
         String temp = "";
 
         for (int i = 0; i < word.length(); i++) {
-
             if (guessedWords.contains(word.charAt(i))) {
                 temp += word.charAt(i);
-//                correctCount++;
             }
             else {
                 temp += "-";
@@ -44,13 +41,10 @@ public class Hangman {
 
     public boolean guess(Character c) {
 
-
         if (word.indexOf(c) != -1 &&
             !guessedWords.contains(c)) {
             correctCount++;
         }
-
-
 
         //tarkista löytyytö jo listalta
         if (!guessedWords.contains(c)) {
@@ -81,18 +75,11 @@ public class Hangman {
 
 
     public boolean theEnd() {
-        System.out.println(word.length());
-        System.out.println(correctCount);
-
-        if (word.length() == correctCount ) {
-            return true;
-        }
-
-        return false;
+        return word.length() == correctCount;
     }
 
 
-    public void randomWord(WordList words) {
+   private void randomWord(WordList words) {
         this.word = words.giveWords().get((int)(Math.random()
                 * words.giveWords().size()));
 
