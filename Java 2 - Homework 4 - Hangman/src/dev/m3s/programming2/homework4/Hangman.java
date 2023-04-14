@@ -8,74 +8,95 @@ public class Hangman {
     //***********************************
 
     String word;
-    int GUESSES = 5;
+    int guesses = 5;
     ArrayList<Character> guessedWords = new ArrayList<>();
-    ArrayList<Character> hiddenWord = new ArrayList<>();
-
-
-    int guesses = GUESSES;
-
+    int correctCount = 0;
 
 
     //**********    CONSTRUCTORS
     //***********************************
 
     public Hangman(WordList wordList, int guesses) {
-
         randomWord(wordList);
         this.guesses = guesses;
-
     }
-
 
     //**********    METHODS
     //***********************************
 
+    public String printState() {
+
+        String temp = "";
+
+        for (int i = 0; i < word.length(); i++) {
+
+            if (guessedWords.contains(word.charAt(i))) {
+                temp += word.charAt(i);
+//                correctCount++;
+            }
+            else {
+                temp += "-";
+            }
+        }
+        return temp;
+    }
+
 
     public boolean guess(Character c) {
-        // compare if char entered is same as given parameter
-        // also add the char to te guessedWords-list
-        // if char löytyy sanasta, return true
-        // jos ei, -1 guesses ja return false
 
-//        if (word.indexOf(c))
-        guessedWords.add(c);
 
+        if (word.indexOf(c) != -1 &&
+            !guessedWords.contains(c)) {
+            correctCount++;
+        }
+
+
+
+        //tarkista löytyytö jo listalta
+        if (!guessedWords.contains(c)) {
+            guessedWords.add(c);
+        }
+
+        if (word.indexOf(c) == -1) {
+            guesses--;
+            return false;
+        }
         return true;
     }
 
 
-    public void printWordState() {
-        for (int i = 0; i <word.length(); i++) {
-            if(guessedWords.contains(word.charAt(i))) {
-                System.out.println(word.charAt(i));
-
-            }
-            else {
-                System.out.println("-");
-            }
-
-        }
-        System.out.println();
+    public ArrayList<Character> guesses () {
+        return guessedWords;
     }
+
 
     public int guessesLeft() {
         return this.guesses;
     }
 
 
+    public String word() {
+        return word;
+    }
+
+
+    public boolean theEnd() {
+        System.out.println(word.length());
+        System.out.println(correctCount);
+
+        if (word.length() == correctCount ) {
+            return true;
+        }
+
+        return false;
+    }
 
 
     public void randomWord(WordList words) {
-        String randomWord = words.giveWords().get((int)(Math.random()
+        this.word = words.giveWords().get((int)(Math.random()
                 * words.giveWords().size()));
 
-        this.word = randomWord;
-
     }
 
-  public ArrayList<Character> guesses () {
-        return guessedWords;
-    }
 
 }
