@@ -9,7 +9,7 @@ public class Main {
 
         // Kohta 1 : ** Create ResponsibleTeacher, set birthdate, set monthly payment
         ResponsibleTeacher responsibleTeacher1 = new ResponsibleTeacher("Mouse", "Micky");
-        responsibleTeacher1.setBirthdate("230498-045T");
+        responsibleTeacher1.setBirthDate("230498-045T");
 
         MonthlyPayment mpayment = new MonthlyPayment();
         mpayment.setSalary( 756.85);
@@ -17,7 +17,7 @@ public class Main {
 
         // Kohta 2: ** Create AssistantTeacher, set birthdate, set monthly payment
         AssistantTeacher assistantTeacher1 = new AssistantTeacher("The Dog", "Goofy");
-        assistantTeacher1.setBirthdate("141200A2315");
+        assistantTeacher1.setBirthDate("141200A2315");
 
         HourBasedPayment hpayment = new HourBasedPayment();
         hpayment.setEurosPerHour(3.5);
@@ -126,7 +126,7 @@ public class Main {
 //        System.out.println(student1.toString());
 
         // Kohta 23 **  Set birthdate of the student1
-        student1.setBirthdate("230498-045T");
+        student1.setBirthDate("230498-045T");
 
         // Kohta 24 **  Set title of Bacherlor thesis
         student1.setTitleOfThesis(0, "Christmas - The most wonderful time of the year");
@@ -158,10 +158,7 @@ public class Main {
 
 //        System.out.println(student1.degrees.get(0).getGPA(2));
 
-//        System.out.println(student1.toString());
-
-
-
+        System.out.println(assistantTeacher1.getEmployeeIdString());
     }
 }
 

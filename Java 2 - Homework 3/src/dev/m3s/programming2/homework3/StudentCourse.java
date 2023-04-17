@@ -38,7 +38,6 @@ public class StudentCourse {
     protected void setGrade(int gradeNum) {
         if (checkGradeValidity(gradeNum)) {
             if (!course.isNumericGrade()) {
-
                 if ((gradeNum == ConstantValues.GRADE_FAILED) ||
                         (gradeNum == ConstantValues.GRADE_ACCEPTED)) {
 
@@ -68,8 +67,8 @@ public class StudentCourse {
 
             char gradeNumChar = (char) gradeNum;
 
-            if ((gradeNumChar == 'A') ||
-                    (gradeNumChar == 'F')) {
+            if ((gradeNumChar == ConstantValues.GRADE_ACCEPTED) ||
+                    (gradeNumChar == ConstantValues.GRADE_FAILED)) {
 
                 return true;
             }
@@ -104,6 +103,7 @@ public class StudentCourse {
         }
     }
 
+
     public String printGrade() {
 
         String gradeStr = null;
@@ -125,6 +125,7 @@ public class StudentCourse {
     public int getCurrentYear() {
         return Year.now().getValue();
     }
+
 
     @Override
     public String toString() {

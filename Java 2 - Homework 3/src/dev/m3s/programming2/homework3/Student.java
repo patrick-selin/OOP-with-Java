@@ -2,36 +2,33 @@ package dev.m3s.programming2.homework3;
 
 import java.time.Year;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 public class Student extends Person {
-//    private String firstName = ConstantValues.NO_NAME;
-//    private String lastName = ConstantValues.NO_NAME;
+
     private int id = getRandomId(ConstantValues.MIN_STUDENT_ID, ConstantValues.MAX_STUDENT_ID);
     private int startYear = getCurrentYear();
     private int graduationYear;
-//    private int degreeCount = 3;
-//    private Degree[] degrees = new Degree[3];
-    ArrayList<Degree> degrees = new ArrayList<>();
-
-//    private String birthDate = ConstantValues.NO_BIRTHDATE;
+    private final List<Degree> degrees = new ArrayList<>();
 
 
-    public Student() {
-        degrees.add(new Degree());
-        degrees.add(new Degree());
-        degrees.add(new Degree());
-//        degrees[0] = new Degree();
-//        degrees[1] = new Degree();
-//        degrees[2] = new Degree();
-    }
+//    public Student() {
+//        degrees.add(new Degree());
+//        degrees.add(new Degree());
+//        degrees.add(new Degree());
+//
+//    }
 //
 //
     public Student(String lastName, String firstName) {
-        this();
-        setLastName(lastName);
-        setFirstName(firstName);
-        // muistaa set ID person-inheritance????
+
+        super(lastName,firstName);
+        degrees.add(new Degree());
+        degrees.add(new Degree());
+        degrees.add(new Degree());
+
+//        setLastName(lastName);
+//        setFirstName(firstName);
     }
 
 
@@ -98,9 +95,11 @@ public class Student extends Person {
     public boolean addCourse(final int i, StudentCourse course) {
         boolean onko = false;
 
+
         if (course != null &&
                 i >= 0 &&
-                i <= degrees.size() ) {
+                i <= degrees.size() &&
+                degrees.get(i).getCourses().size() <= degrees.get(i).MAX_COURSES) {
 
             degrees.get(i).addStudentCourse(course);
             onko = true;
@@ -110,7 +109,7 @@ public class Student extends Person {
     }
 
 
-    public int addCourses(final int i, ArrayList<StudentCourse> courses) {
+    public int addCourses(final int i, List<StudentCourse> courses) {
         int numAddedCourses = 0;
 
         if (courses != null && i >= 0 && i < degrees.size()) {
@@ -277,7 +276,7 @@ public class Student extends Person {
         return "Student id: " + id + printL +
                 tab + "FirstName: " + getFirstName() + ", " +
                 "LastName: " + getLastName()+ printL +
-                tab + "Date of birth: " + getBirthdate() + printL +
+                tab + "Date of birth: " + getBirthDate() + printL +
                 tab + "Status: " + statusPrinter() + printL +
                 tab + "Start year: " + startYear + " (studies have lasted for " +
                 getStudyYears() + " years)" + printL +

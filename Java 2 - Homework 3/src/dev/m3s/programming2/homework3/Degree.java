@@ -1,18 +1,15 @@
 package dev.m3s.programming2.homework3;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Degree {
 
     static final int MAX_COURSES = 50;
-    int count = 0;
+    private int count = 0;
     private String degreeTitle = ConstantValues.NO_TITLE;
     private String titleOfThesis = ConstantValues.NO_TITLE;
-//    StudentCourse[] myCourses = new StudentCourse[MAX_COURSES];
-    ArrayList<StudentCourse> myCourses = new ArrayList<StudentCourse>();
-
+    private List<StudentCourse> myCourses = new ArrayList<StudentCourse>();
 
 
     public List<StudentCourse> getCourses() {
@@ -20,12 +17,11 @@ public class Degree {
     }
 
 
-    public void addStudentCourses(ArrayList<StudentCourse> courses){
+    public void addStudentCourses(List<StudentCourse> courses){
         if (courses != null ) {
             for (StudentCourse course : courses) {
                 if (course != null && count < MAX_COURSES) {
                     addStudentCourse(course);
-
                 }
             }
         }
@@ -35,7 +31,6 @@ public class Degree {
     public boolean addStudentCourse(StudentCourse course) {
         if (course != null && count < MAX_COURSES) {
             myCourses.add(course);
-
             this.count++;
 
             return true;
@@ -48,15 +43,18 @@ public class Degree {
         return degreeTitle;
     }
 
+
     public void setDegreeTitle(String degreeTitle) {
         if (degreeTitle != null) {
             this.degreeTitle = degreeTitle;
         }
     }
 
+
     public String getTitleOfThesis() {
         return titleOfThesis;
     }
+
 
     public void setTitleOfThesis(String titleOfThesis) {
         if (titleOfThesis != null) {
@@ -67,8 +65,6 @@ public class Degree {
 
     public double getCreditsByBase(Character base) {
         double totalCreditsByBase = 0.00;
-
-        System.out.println(base + "--");
 
         for (StudentCourse course: myCourses) {
             if (course != null &&
@@ -81,7 +77,6 @@ public class Degree {
                 }
             }
         }
-
         return totalCreditsByBase;
     }
 
@@ -91,7 +86,7 @@ public class Degree {
 
         for (StudentCourse course: myCourses) {
             if (course != null &&
-                    courseType == course.getCourse().getCourseType()) {
+                courseType == course.getCourse().getCourseType()) {
 
                 double credits = course.getCourse().getCredits();
 
@@ -116,7 +111,6 @@ public class Degree {
                 }
             }
         }
-
         return totalCredits;
     }
 
@@ -126,12 +120,12 @@ public class Degree {
 
         if (c != null) {
             if (c.getCourse().isNumericGrade()) {
-                if (c.getGradeNum() >0 ){
+                if (c.getGradeNum() > ConstantValues.MIN_GRADE ){
 
                     courseCompleted = true;
                 }
             } else {
-                if ( (c.getGradeNum() == 'A' ||
+                if ( (c.getGradeNum() == ConstantValues.GRADE_ACCEPTED ||
                         c.getGradeNum() == 'a')) {
 
                     courseCompleted = true;
@@ -144,14 +138,12 @@ public class Degree {
 
 
     public void printCourses() {
-
         for (StudentCourse course: myCourses) {
             if (course != null) {
                 System.out.println(course);
             }
         }
     }
-
 
     // KESKEN
     public List<Double> getGPA (int type) {
@@ -185,24 +177,23 @@ public class Degree {
 
     private String printDegreeCourses() {
         int counter = 1;
-        String temp = "";
+        String printStr = "";
         for (StudentCourse course: myCourses) {
             if (course != null) {
 
-                temp += "\t" + counter + ". " + course + "\n";
+                printStr += "\t" + counter + ". " + course + "\n";
                 counter++;
             }
         }
-
-
-        return temp;
+        return printStr;
     }
 
 
     @Override
     public String toString() {
-        return "Degree [Title: \"" + degreeTitle + "\" (courses: " + count +
-                ")\n" + "\tThesis title: \"" + titleOfThesis + "\"" +
+        return "Degree [Title: \"" + degreeTitle +
+                "\" (courses: " + count +  ")\n" +
+                "\tThesis title: \"" + titleOfThesis + "\"" +
                 "\n" + printDegreeCourses()
                 ;
     }

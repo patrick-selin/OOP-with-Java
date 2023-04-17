@@ -4,34 +4,20 @@ import java.time.Year;
 
 public abstract class Employee extends Person implements Payment {
 
-    //**********    ATTRIBUTES/PARAMETERS
-    //***********************************
-
     private String empId = String.valueOf(getRandomId(ConstantValues.MIN_EMP_ID , ConstantValues.MAX_EMP_ID));
     private int startYear = getCurrentYear();
-    Payment payment;
+    private Payment payment;
 
-
-
-    //**********    CONSTRUCTORS
-    //***********************************
 
     public Employee(String lname,String fname) {
-        setLastName(lname);
-        setFirstName(fname);
-
+        super(lname, fname);
     }
-
-    //**********    METHODS
-    //***********************************
-
 
 
     public String getIdString() {
-//        String IdString = "Student id: " + this.empId;
-
         return empId;
     }
+
 
     public int getStartYear() {
         return startYear;
@@ -72,7 +58,5 @@ public abstract class Employee extends Person implements Payment {
     }
 
     protected abstract String getEmployeeIdString();
-//        return Integer.toString(empId); ???
-
 
 }

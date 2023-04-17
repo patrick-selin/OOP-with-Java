@@ -1,7 +1,6 @@
 package dev.m3s.programming2.homework3;
 
 import java.time.Year;
-import java.util.ArrayList;
 
 public class DesignatedCourse {
 

@@ -2,17 +2,8 @@ package dev.m3s.programming2.homework3;
 
 public class HourBasedPayment implements Payment {
 
-
-    //**********    ATTRIBUTES/PARAMETERS
-    //***********************************
-
     private double eurosPerHour;
     private double hours;
-
-
-
-    //**********    METHODS
-    //***********************************
 
 
     public double getEurosPerHour() {
@@ -40,10 +31,6 @@ public class HourBasedPayment implements Payment {
 
 
     public double calculatePayment() {
-
         return eurosPerHour * hours;
     }
-
-
-
 }

@@ -1,10 +1,11 @@
 package dev.m3s.programming2.homework3;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ResponsibleTeacher extends Employee implements Teacher, Payment {
 
-    ArrayList<DesignatedCourse> courses = new ArrayList<>();
+    private List<DesignatedCourse> courses = new ArrayList<>();
 
 
     public  ResponsibleTeacher(String lname, String fname) {
@@ -27,9 +28,9 @@ public class ResponsibleTeacher extends Employee implements Teacher, Payment {
                     "[course=" + dc.getCourse() +
                     ", year=" + dc.getYear() + "]" + "\n";
         }
-
         return temppi;
     }
+
 
     public String printResponsibleStatus(boolean isResponsible) {
         if (isResponsible) {
@@ -39,8 +40,7 @@ public class ResponsibleTeacher extends Employee implements Teacher, Payment {
     }
 
 
-
-    public void setCourses(ArrayList<DesignatedCourse> courses) {
+    public void setCourses(List<DesignatedCourse> courses) {
         if (courses!= null) {
             this.courses = courses;
         }
@@ -56,7 +56,7 @@ public class ResponsibleTeacher extends Employee implements Teacher, Payment {
                 getIdString()               + printL +
                 tab + tab + "FirstName: " + getFirstName() + ", " +
                 "LastName: " + getLastName()+ printL +
-                tab + tab + "Birthdate: " + getBirthdate() + printL +
+                tab + tab + "Birthdate: " + getBirthDate() + printL +
                 tab + tab + "Salary: " + getPayment().calculatePayment() + printL +
                 tab + tab + "Teacher for courses: " + printL +
                 getCourses();

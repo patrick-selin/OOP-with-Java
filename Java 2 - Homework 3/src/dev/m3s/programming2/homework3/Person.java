@@ -2,28 +2,16 @@ package dev.m3s.programming2.homework3;
 
 public abstract class Person {
 
-    //**********    ATTRIBUTES/PARAMETERS
-    //***********************************
-
     private String firstName = ConstantValues.NO_NAME;
     private String lastName = ConstantValues.NO_NAME;
     private String birthDate = ConstantValues.NO_BIRTHDATE;
 
 
-
-    //**********    CONSTRUCTORS
-    //***********************************
-
-    public Person() {
-        setLastName(lastName);
-        setFirstName(firstName);
-
+    public Person(String lname, String fname) {
+        setLastName(lname);
+        setFirstName(fname);
     }
 
-
-
-    //**********    METHODS
-    //***********************************
 
     public String getFirstName() {
         return firstName;
@@ -51,11 +39,12 @@ public abstract class Person {
     }
 
 
-    public String getBirthdate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public String setBirthdate(String personId) {
+
+    public String setBirthDate(String personId) {
         if (personId == null) {
             return "No Change";
         }
@@ -73,8 +62,6 @@ public abstract class Person {
     }
 
     protected int getRandomId(final int min, final int max) {
-//        int min = ConstantValues.MIN_STUDENT_ID;
-//        int max = ConstantValues.MAX_STUDENT_ID;
         int studentId;
 
         studentId = (int) (Math.random() * ((max - min) + 1)) + min;

@@ -1,10 +1,11 @@
 package dev.m3s.programming2.homework3;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AssistantTeacher extends Employee implements Teacher, Payment{
 
-    ArrayList<DesignatedCourse> courses = new ArrayList<>();
+    private List<DesignatedCourse> courses = new ArrayList<>();
 
 
     public AssistantTeacher(String lname, String fname) {
@@ -23,10 +24,11 @@ public class AssistantTeacher extends Employee implements Teacher, Payment{
         // utilize DesignatedCourse-class toString()-method
         String temppistr = "Tää on temppi kurssidatasta";
 
+
         return temppistr;
     }
 
-    public void setCourses(ArrayList<DesignatedCourse> courses) {
+    public void setCourses(List<DesignatedCourse> courses) {
         if (courses!= null) {
             this.courses = courses;
         }
@@ -53,7 +55,7 @@ public class AssistantTeacher extends Employee implements Teacher, Payment{
                 getIdString()               + printL +
                 tab + tab + "FirstName: " + getFirstName() + ", " +
                 "LastName: " + getLastName()+ printL +
-                tab + tab + "Birthdate: " + getBirthdate() + printL +
+                tab + tab + "Birthdate: " + getBirthDate() + printL +
                 tab + tab + "Salary: " + getPayment().calculatePayment() + printL +
                 tab + tab + "Assistant for courses: " + printL +
                 printAssistanCourses();

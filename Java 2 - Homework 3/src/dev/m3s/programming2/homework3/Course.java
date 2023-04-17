@@ -16,7 +16,7 @@ public class Course {
 
     public Course(String name,
                   final int code,
-                  Character courseBase,
+                  final Character courseBase,
                   final int type,
                   final int period,
                   final double credits,
