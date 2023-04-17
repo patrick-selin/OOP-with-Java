@@ -22,11 +22,16 @@ public class AssistantTeacher extends Employee implements Teacher, Payment{
     @Override
     public String getCourses() {
         // utilize DesignatedCourse-class toString()-method
-        String temppistr = "Tää on temppi kurssidatasta";
+        String temppi = "";
 
-
-        return temppistr;
+        for (DesignatedCourse dc : courses ) {
+            temppi += "\t\t" +
+                    "[course=" + dc.getCourse() +
+                    ", year=" + dc.getYear() + "]" + "\n";
+        }
+        return temppi;
     }
+
 
     public void setCourses(List<DesignatedCourse> courses) {
         if (courses!= null) {
@@ -41,7 +46,6 @@ public class AssistantTeacher extends Employee implements Teacher, Payment{
             temppi += "\t\t" + "[course=" + dc.getCourse() +
                     ", year=" + dc.getYear() + "]" + "\n";
         }
-
         return temppi;
     }
 

@@ -14,8 +14,7 @@ public class ResponsibleTeacher extends Employee implements Teacher, Payment {
 
 
     public String getEmployeeIdString()  {
-        String temppistr2 = "OY_TEACHER_";
-        return temppistr2;
+        return "OY_TEACHER_";
     }
 
 
@@ -45,6 +44,7 @@ public class ResponsibleTeacher extends Employee implements Teacher, Payment {
             this.courses = courses;
         }
     }
+
 
 
     @Override

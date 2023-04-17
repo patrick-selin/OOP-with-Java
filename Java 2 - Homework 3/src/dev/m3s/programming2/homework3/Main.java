@@ -58,7 +58,7 @@ public class Main {
         responsibleTeacher1.setCourses(dcourselist);
 
         // Kohta 8: ** Set DesignatedCourse first teacher
-//        assistantTeacher1.setCourses(dcourselist);
+        assistantTeacher1.setCourses(dcourselist);
 
         // Kohta 9: ** Print first teacher details toString
         System.out.println(responsibleTeacher1.toString());
@@ -158,7 +158,7 @@ public class Main {
 
 //        System.out.println(student1.degrees.get(0).getGPA(2));
 
-        System.out.println(assistantTeacher1.getEmployeeIdString());
+        System.out.println(assistantTeacher1.getCourses());
     }
 }
 
