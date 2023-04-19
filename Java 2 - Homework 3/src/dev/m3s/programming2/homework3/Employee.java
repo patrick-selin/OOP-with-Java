@@ -4,7 +4,11 @@ import java.time.Year;
 
 public abstract class Employee extends Person implements Payment {
 
-    private String empId = String.valueOf(getRandomId(ConstantValues.MIN_EMP_ID , ConstantValues.MAX_EMP_ID));
+    private String empId = getEmployeeIdString() +
+            String.valueOf(super.getRandomId(
+                    ConstantValues.MIN_EMP_ID , ConstantValues.MAX_EMP_ID));
+//    private String empId = "OY_" + String.valueOf(getRandomId(ConstantValues.MIN_EMP_ID , ConstantValues.MAX_EMP_ID));
+
     private int startYear = getCurrentYear();
     private Payment payment;
 

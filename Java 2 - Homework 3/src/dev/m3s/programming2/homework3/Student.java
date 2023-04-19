@@ -12,23 +12,11 @@ public class Student extends Person {
     private final List<Degree> degrees = new ArrayList<>();
 
 
-//    public Student() {
-//        degrees.add(new Degree());
-//        degrees.add(new Degree());
-//        degrees.add(new Degree());
-//
-//    }
-//
-//
     public Student(String lastName, String firstName) {
-
         super(lastName,firstName);
         degrees.add(new Degree());
         degrees.add(new Degree());
         degrees.add(new Degree());
-
-//        setLastName(lastName);
-//        setFirstName(firstName);
     }
 
 
@@ -154,15 +142,12 @@ public class Student extends Person {
     }
 
 
-
-
     public boolean hasGraduated() {
         return canGraduate() &&
                 graduationYear != 0 &&
                 graduationYear >= startYear &&
                 graduationYear <= getCurrentYear();
     }
-
 
 
     private boolean canGraduate() {
@@ -265,7 +250,14 @@ public class Student extends Person {
                 degrees.get(1).getCreditsByType(1);
     }
 
+    public Double countGPA() {
+        double gpaAvg = 0.00;
 
+        gpaAvg = (degrees.get(0).getGPA(2).get(2) +
+                degrees.get(1).getGPA(2).get(2)) / 2;
+
+        return gpaAvg;
+    }
 
 
     @Override
@@ -282,7 +274,7 @@ public class Student extends Person {
                 getStudyYears() + " years)" + printL +
 
                 tab + "Total credits: " + getAllCredits() +
-                " (GPA = " + degrees.get(0).getGPA(2) + ")" + printL +
+                " (GPA = " + countGPA() + ")" + printL +
 
                 tab + "Bachelor credits: " + degrees.get(0).getCredits()  + printL +
                 tab + tab + printCredits(ConstantValues.BACHELOR_TYPE) +

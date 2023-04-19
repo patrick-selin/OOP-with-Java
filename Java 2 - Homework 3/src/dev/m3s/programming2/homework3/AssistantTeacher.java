@@ -21,7 +21,6 @@ public class AssistantTeacher extends Employee implements Teacher, Payment{
 
     @Override
     public String getCourses() {
-        // utilize DesignatedCourse-class toString()-method
         String temppi = "";
 
         for (DesignatedCourse dc : courses ) {
@@ -55,8 +54,7 @@ public class AssistantTeacher extends Employee implements Teacher, Payment{
         String tab = "\t";
         String printL = "\n";
 
-        return "Teacher id: " + getEmployeeIdString() +
-                getIdString()               + printL +
+        return "Teacher id: " + getIdString() + printL +
                 tab + tab + "FirstName: " + getFirstName() + ", " +
                 "LastName: " + getLastName()+ printL +
                 tab + tab + "Birthdate: " + getBirthDate() + printL +

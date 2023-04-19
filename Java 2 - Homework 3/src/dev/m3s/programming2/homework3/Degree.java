@@ -145,33 +145,26 @@ public class Degree {
         }
     }
 
-    // KESKEN
+
     public List<Double> getGPA (int type) {
-
-        // puuttuu vielä JOS EI KURSSEJA PALAUTA
-        // [0.00, 0.00, 0.00]
-        // clean up code and variable names
-        ArrayList<Double> listaa = new ArrayList<>();
-
+        ArrayList<Double> listGPA= new ArrayList<>();
 
         double sum = 0.00;
         double count = 0.00;
-
 
         for (StudentCourse c : myCourses) {
             if (c.getCourse().isNumericGrade()) {
                 sum += c.getGradeNum();
                 count++;
             }
-
         }
 
-        listaa.add(sum);
-        listaa.add(count);
-        listaa.add(sum / count);
+        listGPA.add(sum);
+        listGPA.add(count);
+        double avg = sum / count;
+        listGPA.add(avg);
 
-
-        return listaa;
+        return listGPA;
     }
 
 
