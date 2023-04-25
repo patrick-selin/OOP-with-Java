@@ -58,7 +58,8 @@ public class AssistantTeacher extends Employee implements Teacher, Payment{
                 tab + tab + "FirstName: " + getFirstName() + ", " +
                 "LastName: " + getLastName()+ printL +
                 tab + tab + "Birthdate: " + getBirthDate() + printL +
-                tab + tab + "Salary: " + getPayment().calculatePayment() + printL +
+                tab + tab + "Salary: " +
+                String.format("%.2f", getPayment().calculatePayment()) + printL +
                 tab + tab + "Assistant for courses: " + printL +
                 printAssistanCourses();
     }

@@ -274,7 +274,9 @@ public class Student extends Person {
                 getStudyYears() + " years)" + printL +
 
                 tab + "Total credits: " + getAllCredits() +
-                " (GPA = " + countGPA() + ")" + printL +
+                " (GPA = " + String.format("%.2f", countGPA()) + ")" + printL +
+
+//                String.format("%.2f", getPayment().calculatePayment())
 
                 tab + "Bachelor credits: " + degrees.get(0).getCredits()  + printL +
                 tab + tab + printCredits(ConstantValues.BACHELOR_TYPE) +

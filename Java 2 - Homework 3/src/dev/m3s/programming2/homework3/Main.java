@@ -61,10 +61,10 @@ public class Main {
         assistantTeacher1.setCourses(dcourselist);
 
         // Kohta 9: ** Print first teacher details toString
-        System.out.println(responsibleTeacher1.toString());
+//        System.out.println(responsibleTeacher1.toString());
 
         // Kohta 10: ** Print second teacher details toString
-        System.out.println(assistantTeacher1.toString());
+//        System.out.println(assistantTeacher1.toString());
 
         // Kohta 11: ** StudentCourss for student1
         StudentCourse Studentcourse1 = new StudentCourse(course1, 1, 2013);
@@ -154,13 +154,9 @@ public class Main {
 // *************************************************
 // *************************************************
 
-//        System.out.println(student1.toString());
+        System.out.println(student1.toString());
 
-//        System.out.println(student1.degrees.get(0).getGPA(2));
 
-//        System.out.println(assistantTeacher1.getCourses());
-//        System.out.println(Studentcourse9.toString());
-        System.out.println(assistantTeacher1.getIdString());
 
     }
 }
