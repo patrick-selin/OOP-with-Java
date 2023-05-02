@@ -1,28 +1,21 @@
 package dev.m3s.programming2.homework4;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Hangman {
 
-    //**********    ATTRIBUTES/PARAMETERS
-    //***********************************
-
     private String word;
     private int guesses = 5;
-    private ArrayList<Character> guessedWords = new ArrayList<>();
+    private List<Character> guessedWords = new ArrayList<>();
     private int correctCount = 0;
 
-
-    //**********    CONSTRUCTORS
-    //***********************************
 
     public Hangman(WordList wordList, int guesses) {
         randomWord(wordList);
         this.guesses = guesses;
     }
 
-    //**********    METHODS
-    //***********************************
 
     public String printState() {
         String temp = "";
@@ -40,13 +33,13 @@ public class Hangman {
 
 
     public boolean guess(Character c) {
+        c = Character.toLowerCase(c);
 
         if (word.indexOf(c) != -1 &&
             !guessedWords.contains(c)) {
             correctCount++;
         }
 
-        //tarkista löytyytö jo listalta
         if (!guessedWords.contains(c)) {
             guessedWords.add(c);
         }
@@ -59,7 +52,7 @@ public class Hangman {
     }
 
 
-    public ArrayList<Character> guesses () {
+    public List<Character> guesses () {
         return guessedWords;
     }
 
@@ -75,15 +68,12 @@ public class Hangman {
 
 
     public boolean theEnd() {
-        return word.length() == correctCount;
+        return word.length() == correctCount || guessesLeft() < 1 ;
     }
 
 
    private void randomWord(WordList words) {
-        this.word = words.giveWords().get((int)(Math.random()
-                * words.giveWords().size()));
-
+        this.word = words.giveWords().get((int)
+                   (Math.random() * words.giveWords().size()));
     }
-
-
 }

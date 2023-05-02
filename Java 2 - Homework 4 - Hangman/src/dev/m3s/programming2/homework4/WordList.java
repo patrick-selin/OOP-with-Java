@@ -1,25 +1,23 @@
 package dev.m3s.programming2.homework4;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class WordList {
 
-    //**********    ATTRIBUTES/PARAMETERS
-    ArrayList<String> wordsList = new ArrayList<>();
+    private List<String> wordsList = new ArrayList<>();
 
 
-    //**********    CONSTRUCTORS
-    public WordList(File wordListTxtFile) throws FileNotFoundException {
-        setWordList(wordListTxtFile);
+    public WordList(String filename) throws FileNotFoundException {
+        setWordList(filename);
     }
 
 
-    //**********    METHODS
-    public void setWordList(File wordListTxtFile ) throws FileNotFoundException {
-        Scanner textScanner = new Scanner(wordListTxtFile);
+    public void setWordList(String filename) throws FileNotFoundException {
+        BufferedReader reader = new BufferedReader(new FileReader(filename));
+        Scanner textScanner = new Scanner(reader);
 
         while(textScanner.hasNextLine()) {
             wordsList.add(textScanner.nextLine());
@@ -27,9 +25,7 @@ public class WordList {
     }
 
 
-    public ArrayList<String> giveWords() {
-        // The method returns words of the wordlist
+    public List<String> giveWords() {
         return wordsList;
     }
-
 }
